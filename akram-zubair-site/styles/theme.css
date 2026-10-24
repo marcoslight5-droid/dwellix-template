@@ -1,0 +1,84 @@
+/*
+ * DESIGN TOKENS: the whole look of the site is controlled from here.
+ * To redesign, change these values (or add a new [data-theme] block and
+ * select it in site.config.ts). Components only use these variables.
+ */
+
+:root,
+[data-theme='noir'] {
+  /* Colour */
+  --color-bg: #0b0c0e;
+  --color-bg-alt: #121417;
+  --color-surface: #17191d;
+  --color-surface-2: #1e2126;
+  --color-text: #f3efe7;
+  --color-text-muted: #a8a296;
+  --color-line: rgb(243 239 231 / 0.12);
+  --color-accent: #c8a96a; /* champagne gold */
+  --color-accent-strong: #d9be86;
+  --color-accent-text: #14110b; /* text on accent buttons */
+  --color-hero-overlay: linear-gradient(180deg, rgb(11 12 14 / 0.55) 0%, rgb(11 12 14 / 0.75) 55%, #0b0c0e 100%);
+  --color-header-bg: rgb(11 12 14 / 0.78);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Noto Naskh Arabic', Georgia, serif;
+  --font-body: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display-weight: 500;
+  --tracking-eyebrow: 0.2em;
+
+  /* Shape & depth */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px rgb(0 0 0 / 0.35);
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: 20px;
+  --section-space: 72px;
+
+  color-scheme: dark;
+}
+
+/* Light editorial preset */
+[data-theme='ivory'] {
+  --color-bg: #f8f5ef;
+  --color-bg-alt: #efe9df;
+  --color-surface: #ffffff;
+  --color-surface-2: #f4efe6;
+  --color-text: #1b1a17;
+  --color-text-muted: #6b655b;
+  --color-line: rgb(27 26 23 / 0.12);
+  --color-accent: #8a6a2f;
+  --color-accent-strong: #6f5422;
+  --color-accent-text: #ffffff;
+  --color-hero-overlay: linear-gradient(180deg, rgb(248 245 239 / 0.35) 0%, rgb(248 245 239 / 0.85) 60%, #f8f5ef 100%);
+  --color-header-bg: rgb(248 245 239 / 0.85);
+  --shadow-card: 0 1px 2px rgb(27 26 23 / 0.05), 0 16px 36px rgb(27 26 23 / 0.08);
+  color-scheme: light;
+}
+
+/* Navy & sand preset */
+[data-theme='marina'] {
+  --color-bg: #0c1726;
+  --color-bg-alt: #102033;
+  --color-surface: #13263c;
+  --color-surface-2: #183049;
+  --color-text: #f2ede4;
+  --color-text-muted: #a3b1c2;
+  --color-line: rgb(242 237 228 / 0.12);
+  --color-accent: #e3c9a0;
+  --color-accent-strong: #eed8b6;
+  --color-accent-text: #0c1726;
+  --color-hero-overlay: linear-gradient(180deg, rgb(12 23 38 / 0.5) 0%, rgb(12 23 38 / 0.8) 55%, #0c1726 100%);
+  --color-header-bg: rgb(12 23 38 / 0.8);
+  color-scheme: dark;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 40px;
+    --section-space: 112px;
+  }
+}

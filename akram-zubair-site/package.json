@@ -1,0 +1,26 @@
+{
+  "name": "dwellix-agent-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Premium bilingual (EN/AR) Dubai real estate agent website template, built to be redesigned in Google AI Studio.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "images": "node scripts/generate-placeholders.mjs"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.5"
+  }
+}

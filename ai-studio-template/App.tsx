@@ -5,12 +5,10 @@ import { useLang } from './lib/i18n';
 import { useProjectRoute } from './lib/useHashRoute';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { Specialties } from './components/Specialties';
 import { Projects } from './components/Projects';
 import { ProjectDetail } from './components/ProjectDetail';
-import { Invest } from './components/Invest';
-import { Credibility } from './components/Credibility';
-import { Reels } from './components/Reels';
+import { Approach } from './components/Approach';
+import { Activity } from './components/Activity';
 import { About } from './components/About';
 import { Faq } from './components/Faq';
 import { Contact, Footer, FloatingWhatsApp } from './components/Contact';
@@ -32,12 +30,12 @@ export default function App() {
   // Per-language title, description and structured data.
   useEffect(() => {
     document.title = `${t(agent.name)} · ${t(agent.role)}`;
-    document.querySelector('meta[name="description"]')?.setAttribute('content', t(agent.tagline));
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t(agent.headline));
     const ld = {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
       name: t(agent.name),
-      description: t(agent.tagline),
+      description: t(agent.headline),
       image: new URL(agent.photo, window.location.origin).href,
       telephone: agent.phone,
       ...(agent.email ? { email: agent.email } : {}),
@@ -58,7 +56,7 @@ export default function App() {
   }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.8);
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.6);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -67,16 +65,14 @@ export default function App() {
   return (
     <>
       <a className="skip" href="#projects">
-        {s.exploreProjects}
+        {s.seeProjects}
       </a>
       <Header />
       <main>
-        <Hero onOpen={openProject} />
-        <Specialties />
+        <Hero />
         <Projects onOpen={openProject} />
-        <Invest />
-        <Credibility />
-        <Reels />
+        <Approach />
+        <Activity />
         <About />
         <Faq />
         <Contact />
@@ -86,7 +82,7 @@ export default function App() {
       {projectId && <ProjectDetail id={projectId} onClose={() => openProject(null)} />}
       {import.meta.env.DEV && siteConfig.preview && content.todo.length > 0 && (
         <p className="todo-badge" title={content.todo.join('\n')}>
-          {s.placeholderBadge(content.todo.length)}
+          {content.todo.length} to confirm (data/content.ts → todo)
         </p>
       )}
     </>

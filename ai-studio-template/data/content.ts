@@ -14,10 +14,14 @@ import type { SiteContent } from '../types';
 export const content: SiteContent = {
   agent: {
     name: { en: 'Akram Zubair', ar: 'أكرم زبير' },
-    role: { en: 'Off-plan & Investment Advisor', ar: 'مستشار المشاريع على الخارطة والاستثمار العقاري' },
-    tagline: {
-      en: 'Client-centric property advice for investors and families buying into Dubai’s next landmarks.',
-      ar: 'استشارات عقارية تضع العميل أولاً، للمستثمرين والعائلات الراغبين في امتلاك معالم دبي القادمة.',
+    role: { en: 'Property advisor, Dubai', ar: 'مستشار عقاري، دبي' },
+    headline: {
+      en: 'Off-plan, ready and commercial property in Dubai, chosen on the numbers.',
+      ar: 'عقارات على الخارطة وجاهزة وتجارية في دبي، تُختار على أساس الأرقام.',
+    },
+    intro: {
+      en: 'I’m Akram Zubair. Tell me your budget and what the property is for, and I’ll come back with a short list, the payment plans and the full cost of buying.',
+      ar: 'أنا أكرم زبير. أخبرني بميزانيتك والغرض من العقار، وسأرسل لك قائمة مختصرة مع خطط الدفع والتكلفة الكاملة للشراء.',
     },
     bio: [
       {
@@ -45,52 +49,8 @@ export const content: SiteContent = {
     languages: [],
   },
 
-  featuredProject: 'grade-a-offices-szr',
-
-  // Only facts taken from his posts. No invented years, deal counts or client numbers.
-  stats: [
-    { value: '5', label: { en: 'Featured projects', ar: 'مشاريع مختارة' } },
-    { value: '4', label: { en: 'Leading developers', ar: 'من كبار المطورين' } },
-    { value: '2025', label: { en: 'First-quarter award, Marrfa', ar: 'جائزة الربع الأول، مارفا' } },
-    { value: '10-yr', label: { en: 'Golden Visa guidance', ar: 'إرشاد حول الإقامة الذهبية' } },
-  ],
-
-  specialties: [
-    {
-      icon: 'key',
-      title: { en: 'Off-plan launches', ar: 'مشاريع على الخارطة' },
-      text: {
-        en: 'Priority access to new launches with developer payment plans, early-bird pricing and unit selection before public release.',
-        ar: 'وصول مبكر إلى الإطلاقات الجديدة مع خطط دفع المطورين وأسعار الحجز المبكر واختيار الوحدات قبل الطرح العام.',
-      },
-    },
-    {
-      icon: 'chart',
-      title: { en: 'Investor consultations', ar: 'استشارات المستثمرين' },
-      text: {
-        en: 'Yield, capital growth and exit planning for first-time and portfolio investors, including Golden Visa eligible purchases.',
-        ar: 'تخطيط العائد ونمو رأس المال واستراتيجية التخارج للمستثمرين الجدد وأصحاب المحافظ، بما في ذلك الصفقات المؤهلة للإقامة الذهبية.',
-      },
-    },
-    {
-      icon: 'wave',
-      title: { en: 'Waterfront living', ar: 'الحياة على الواجهة البحرية' },
-      text: {
-        en: 'Marina and island addresses, from Rashid Yachts & Marina at Mina Rashid to new launches on Dubai Islands.',
-        ar: 'عناوين على المرسى والجزر، من راشد يخوت ومارينا في ميناء راشد إلى الإطلاقات الجديدة في جزر دبي.',
-      },
-    },
-    {
-      icon: 'briefcase',
-      title: { en: 'Commercial property', ar: 'العقارات التجارية' },
-      text: {
-        en: 'Grade A offices on Sheikh Zayed Road for owner-occupiers and income investors.',
-        ar: 'مكاتب من الفئة الممتازة على شارع الشيخ زايد لمن يرغب في الاستخدام أو الاستثمار بعائد.',
-      },
-    },
-  ],
-
   // In the order they appear on the site. Sources: his posts (postUrl on each project).
+  // Add real renders with `photos: ['/images/...']`; without photos a typographic cover is shown.
   projects: [
     {
       id: 'grade-a-offices-szr',
@@ -101,8 +61,6 @@ export const content: SiteContent = {
       unitTypes: { en: '332 offices from 1,077 sq ft · Freehold', ar: '332 مكتباً بمساحات تبدأ من 1,077 قدماً مربعاً · تملك حر' },
       price: { en: 'Indicative from AED 4,000/sq ft', ar: 'أسعار استرشادية تبدأ من 4,000 درهم للقدم المربع' },
       paymentPlan: { en: '20/30/50', ar: '20/30/50' },
-      image: '/images/project-offices-1.jpg',
-      gallery: ['/images/project-offices-1.jpg', '/images/project-offices-2.jpg', '/images/project-offices-3.jpg'],
       summary: {
         en: 'An 87-storey, 372-metre landmark between DIFC, Downtown and Business Bay. Private floor plans and pricing on request.',
         ar: 'معلم من 87 طابقاً بارتفاع 372 متراً بين مركز دبي المالي العالمي ووسط المدينة والخليج التجاري. المخططات والأسعار الخاصة عند الطلب.',
@@ -125,8 +83,6 @@ export const content: SiteContent = {
       unitTypes: { en: '1–3 bedroom low-rise apartments', ar: 'شقق من غرفة إلى ثلاث غرف في مبانٍ منخفضة الارتفاع' },
       price: { en: 'Price on request', ar: 'السعر عند الطلب' },
       paymentPlan: { en: '40/60', ar: '40/60' },
-      image: '/images/project-arancia-1.jpg',
-      gallery: ['/images/project-arancia-1.jpg', '/images/project-arancia-2.jpg', '/images/project-arancia-3.jpg'],
       summary: {
         en: 'Low-rise residences by BEYOND in The Yards at City of Arabia, with one to three bedroom homes on a 40/60 payment plan.',
         ar: 'مساكن منخفضة الارتفاع من BEYOND في ذا ياردز بسيتي أوف أرابيا، تضم شققاً من غرفة إلى ثلاث غرف بخطة دفع 40/60.',
@@ -148,8 +104,6 @@ export const content: SiteContent = {
       unitTypes: { en: '1–4 bedroom apartments', ar: 'شقق من غرفة إلى أربع غرف' },
       price: { en: 'From AED 2.3M', ar: 'تبدأ من 2.3 مليون درهم' },
       paymentPlan: { en: '20% down payment', ar: 'دفعة أولى 20%' },
-      image: '/images/project-hermina-1.jpg',
-      gallery: ['/images/project-hermina-1.jpg', '/images/project-hermina-2.jpg', '/images/project-hermina-3.jpg'],
       summary: {
         en: 'One to four bedroom apartments on Dubai Islands from AED 2.3M, with 20% down and handover in Q2 2028.',
         ar: 'شقق من غرفة إلى أربع غرف في جزر دبي تبدأ من 2.3 مليون درهم، بدفعة أولى 20% والتسليم في الربع الثاني 2028.',
@@ -169,8 +123,6 @@ export const content: SiteContent = {
       status: { en: 'Ready · Furnished', ar: 'جاهزة · مفروشة' },
       unitTypes: { en: '2 bedrooms · 2 bathrooms · 874 sq ft', ar: 'غرفتا نوم · حمّامان · 874 قدماً مربعاً' },
       price: { en: 'AED 1,850,000', ar: '1,850,000 درهم' },
-      image: '/images/project-riviera-1.jpg',
-      gallery: ['/images/project-riviera-1.jpg', '/images/project-riviera-2.jpg', '/images/project-riviera-3.jpg'],
       summary: {
         en: 'A ready, furnished two bedroom, two bathroom apartment of 874 sq ft in Riviera, Mohammed Bin Rashid City.',
         ar: 'شقة جاهزة ومفروشة بغرفتي نوم وحمّامين بمساحة 874 قدماً مربعاً في ريفييرا، مدينة محمد بن راشد.',
@@ -191,12 +143,9 @@ export const content: SiteContent = {
       developer: 'Emaar Properties',
       location: { en: 'Mina Rashid', ar: 'ميناء راشد' },
       category: 'off-plan',
-      waterfront: true,
       status: { en: 'Off-plan · Completion 2028', ar: 'على الخارطة · الإنجاز في 2028' },
       unitTypes: { en: '1–4 bed apartments, penthouses and townhouses', ar: 'شقق من غرفة إلى أربع غرف، وبنتهاوس، وتاون هاوس' },
       price: { en: 'Price on request', ar: 'السعر عند الطلب' },
-      image: '/images/project-rashid-1.jpg',
-      gallery: ['/images/project-rashid-1.jpg', '/images/project-rashid-2.jpg', '/images/project-rashid-3.jpg'],
       summary: {
         en: 'Emaar’s waterfront community at Mina Rashid, Dubai’s first seaport, between Dubai Maritime City and Dubai Islands. About 10 minutes to Dubai International Airport and 20 minutes to Downtown Dubai.',
         ar: 'مجتمع إعمار على الواجهة البحرية في ميناء راشد، أول ميناء بحري في دبي، بين مدينة دبي الملاحية وجزر دبي. على بُعد نحو 10 دقائق من مطار دبي الدولي و20 دقيقة من وسط مدينة دبي.',
@@ -215,9 +164,33 @@ export const content: SiteContent = {
     },
   ],
 
-  investReasons: [
+  // How a client works with him. Describes the service, makes no claims about results.
+  process: [
     {
-      icon: 'percent',
+      title: { en: 'Brief', ar: 'الاحتياجات' },
+      text: {
+        en: 'Your budget, your timeline, and whether you’re buying to live in, rent out or resell.',
+        ar: 'ميزانيتك وجدولك الزمني، وهل تشتري للسكن أم للتأجير أم لإعادة البيع.',
+      },
+    },
+    {
+      title: { en: 'Shortlist', ar: 'القائمة المختصرة' },
+      text: {
+        en: 'Two or three options that fit, with payment plans, service charges and every fee on one page.',
+        ar: 'خياران أو ثلاثة مناسبة، مع خطط الدفع ورسوم الخدمات وجميع الرسوم في صفحة واحدة.',
+      },
+    },
+    {
+      title: { en: 'Close', ar: 'إتمام الصفقة' },
+      text: {
+        en: 'Viewings, reservation, DLD registration and handover, in person or remotely if you’re overseas.',
+        ar: 'المعاينات والحجز والتسجيل لدى دائرة الأراضي والأملاك والتسليم، حضورياً أو عن بُعد إن كنت خارج الدولة.',
+      },
+    },
+  ],
+
+  facts: [
+    {
       title: { en: 'No income or capital gains tax', ar: 'لا ضريبة على الدخل أو الأرباح الرأسمالية' },
       text: {
         en: 'Rental income and resale profits on Dubai property are not taxed for individual investors.',
@@ -225,7 +198,6 @@ export const content: SiteContent = {
       },
     },
     {
-      icon: 'passport',
       title: { en: 'Golden Visa pathway', ar: 'طريق إلى الإقامة الذهبية' },
       text: {
         en: 'Property worth AED 2 million or more can qualify you for a 10-year UAE Golden Visa.',
@@ -233,7 +205,6 @@ export const content: SiteContent = {
       },
     },
     {
-      icon: 'shield',
       title: { en: 'Escrow-protected off-plan', ar: 'حماية حسابات الضمان للمشاريع على الخارطة' },
       text: {
         en: 'Off-plan payments go into RERA-regulated escrow accounts tied to construction progress.',
@@ -241,7 +212,6 @@ export const content: SiteContent = {
       },
     },
     {
-      icon: 'globe',
       title: { en: 'Freehold for foreigners', ar: 'تملّك حر للأجانب' },
       text: {
         en: 'International buyers can own property outright in designated freehold areas, and buy remotely.',
@@ -250,56 +220,45 @@ export const content: SiteContent = {
     },
   ],
 
-  // Confirmed from his post of Oct 13, 2025. The exact award title isn't stated in the post.
-  awards: [
+  // Recognition and activity, newest first. All from his posts.
+  milestones: [
     {
-      title: { en: 'First-quarter award', ar: 'جائزة الربع الأول' },
-      issuer: { en: 'Marrfa', ar: 'مارفا' },
-      year: '2025',
-      url: 'https://www.instagram.com/dubairealtorzubayr/p/DPvhBxykblE/',
-    },
-  ],
-
-  press: [
-    {
-      outlet: 'Estate Magazine',
-      headline: {
-        en: 'Akram Zubair Is Turning Dubai Real Estate Leadership Into Results',
-        ar: 'أكرم زبير يحوّل الريادة في عقارات دبي إلى نتائج',
+      when: { en: 'Sept 2026', ar: 'سبتمبر 2026' },
+      title: { en: 'Estate Magazine feature', ar: 'مقال في مجلة Estate' },
+      detail: {
+        en: '“Akram Zubair Is Turning Dubai Real Estate Leadership Into Results”, by Aditi Goyal',
+        ar: '«أكرم زبير يحوّل الريادة في عقارات دبي إلى نتائج»، بقلم أديتي غويال',
       },
-      byline: { en: 'By Aditi Goyal · 17 September 2026', ar: 'بقلم أديتي غويال · 17 سبتمبر 2026' },
       url: 'https://www.instagram.com/dubairealtorzubayr/',
-      image: '/images/press-1.jpg',
     },
-  ],
-
-  // His Instagram highlights "25-26 Oct" and "27th Sept" are these 2025 events. Images are placeholders.
-  events: [
     {
+      when: { en: 'Oct 2025', ar: 'أكتوبر 2025' },
       title: { en: 'Property Roadshow, Karachi', ar: 'المعرض العقاري المتنقل، كراتشي' },
-      date: { en: '25–26 Oct 2025', ar: '25–26 أكتوبر 2025' },
-      place: { en: 'Avari Towers, Karachi', ar: 'أفاري تاورز، كراتشي' },
-      note: { en: 'Dubai property investment and the 10-year Golden Visa', ar: 'الاستثمار العقاري في دبي والإقامة الذهبية لمدة 10 سنوات' },
-      image: '/images/event-1.jpg',
+      detail: {
+        en: 'Avari Towers, 25–26 Oct. Dubai investment and the 10-year Golden Visa',
+        ar: 'أفاري تاورز، 25 و26 أكتوبر. الاستثمار في دبي والإقامة الذهبية لمدة 10 سنوات',
+      },
       url: 'https://www.instagram.com/dubairealtorzubayr/reel/DPRErUCDDbV/',
     },
     {
+      when: { en: '2025', ar: '2025' },
+      title: { en: 'First-quarter award, Marrfa', ar: 'جائزة الربع الأول، مارفا' },
+      detail: { en: 'Recognised in his first quarter with the team', ar: 'تكريم في ربعه الأول مع الفريق' },
+      url: 'https://www.instagram.com/dubairealtorzubayr/p/DPvhBxykblE/',
+    },
+    {
+      when: { en: 'Sept 2025', ar: 'سبتمبر 2025' },
       title: { en: 'Ghaf Woods Open House', ar: 'يوم مفتوح في غاف وودز' },
-      date: { en: '27 Sept 2025', ar: '27 سبتمبر 2025' },
-      image: '/images/event-2.jpg',
+      detail: { en: '27 Sept', ar: '27 سبتمبر' },
       url: 'https://www.instagram.com/dubairealtorzubayr/reel/DOvPKYkEcxQ/',
     },
   ],
 
-  // Developers seen in his posts.
-  developers: ['BEYOND', 'Casagrand', 'Emaar', 'Azizi'],
-
-  // Covers cropped from his Instagram grid. Swap in full-resolution covers and post links.
   reels: [
-    { image: '/images/reel-1.jpg', caption: { en: 'Show apartment walkthrough', ar: 'جولة في الشقة النموذجية' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-2.jpg', caption: { en: 'Smart sofa: massages and music', ar: 'أريكة ذكية للتدليك والموسيقى' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-3.jpg', caption: { en: 'Fully equipped kitchen', ar: 'مطبخ مجهز بالكامل' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-4.jpg', caption: { en: 'More than 40 amenities', ar: 'أكثر من 40 مرفقاً' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-1.jpg', caption: { en: 'Show apartment walkthrough', ar: 'جولة في الشقة النموذجية' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    { image: '/images/reel-2.jpg', caption: { en: 'Smart sofa: massages and music', ar: 'أريكة ذكية للتدليك والموسيقى' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    { image: '/images/reel-3.jpg', caption: { en: 'Fully equipped kitchen', ar: 'مطبخ مجهز بالكامل' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    { image: '/images/reel-4.jpg', caption: { en: 'More than 40 amenities', ar: 'أكثر من 40 مرفقاً' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
     { image: '/images/reel-5.jpg', caption: { en: 'Waterfront living', ar: 'الحياة على الواجهة البحرية' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
     { image: '/images/reel-6.jpg', caption: { en: 'Lagoon community', ar: 'مجتمع البحيرات' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
   ],
@@ -336,7 +295,7 @@ export const content: SiteContent = {
   ],
 
   // To confirm with Akram before the site goes live. Everything here is either hidden
-  // on the page or shown with safe wording ("price on request", placeholder photos).
+  // on the page or shown with safe wording ("price on request", typographic covers).
   todo: [
     'Name: shown as "Akram Zubair" (LinkedIn + Estate Magazine); the offices flyer says "Zubair Akram". Confirm, plus the Arabic spelling (أكرم زبير)',
     'Current agency: shown as Rino Properties (tagged Oct 2026; he was at Marrfa in Oct 2025)',
@@ -346,7 +305,7 @@ export const content: SiteContent = {
     'Developers of the offices tower and the Riviera unit (not named in his posts)',
     'Exact title and a photo of the Marrfa first-quarter award (2025)',
     'Estate Magazine article URL (not findable online; the card links to his Instagram)',
-    'Photos: original headshot (avatar is cropped from his Instagram profile picture), project renders, event photos',
+    'Photos: original headshot (avatar is cropped from his Instagram profile picture) and project renders (add as `photos` on each project)',
     'Reels: link each cover to its post',
   ],
 };

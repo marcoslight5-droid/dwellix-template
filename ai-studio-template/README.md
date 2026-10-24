@@ -8,13 +8,11 @@ The current content is a **pitch preview** for Akram Zubair ([@dubairealtorzubay
 
 It's designed for an **off-plan and investment advisor**: an agent who sells developer launches (Emaar, Omniyat, Azizi…), waterfront and branded residences, and some commercial space. Their clients are mostly investors, including overseas buyers. So the site leads with:
 
-1. **Hero:** round headshot with role, agency and RERA BRN, name, tagline, WhatsApp "Book a consultation", a featured-project card (`featuredProject` in `content.ts`), and a strip of verifiable highlights
-2. **Specialities:** off-plan launches, investor consultations, waterfront & branded living, commercial; developer row
-3. **Projects:** filterable cards (Off-plan / Ready / Commercial / Waterfront) that open a detail sheet (`#/project/<id>`) with a swipeable gallery, facts, highlights and a "Request brochure & payment plan" WhatsApp button
-4. **Investor relations:** why invest in Dubai, a rental-yield calculator, and a consultation form that sends a structured WhatsApp message
-5. **Recognition:** awards and certificates, press feature, events (Property Expo, open houses)
-6. **Instagram:** reels grid linking to his posts
-7. **About**, **FAQ** (buying in Dubai) and **Contact** (WhatsApp, call, email, Instagram, office)
+1. **Hero:** a large serif statement, his headshot with a one-line intro, and the WhatsApp call to action
+2. **Current projects:** a numbered index (developer, homes, status, price); each row opens a sheet with photos (or a typographic cover when there are none), facts, highlights, a WhatsApp button and a link to his post
+3. **How I work:** three steps, plus short facts about buying in Dubai
+4. **Recognition & activity:** press, award and events as a dated list, plus a strip of his Instagram posts
+5. **About**, **FAQ**, and a closing **contact** block: a four-question brief that opens WhatsApp, and his phone number
 
 Every WhatsApp link is prefilled with a message about that project, in the visitor's language.
 
@@ -25,7 +23,6 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # type-check + production build into dist/
 npm run preview    # serve dist/
-npm run images     # regenerate the placeholder images in public/images/
 ```
 
 `?lang=ar` opens the Arabic version directly. The visitor's choice is remembered.
@@ -33,15 +30,14 @@ npm run images     # regenerate the placeholder images in public/images/
 ## Personalising it for an agent
 
 1. **Text:** edit `data/content.ts`. Every visible string is an `{ en, ar }` pair. Interface labels and WhatsApp message templates are in `data/ui.ts`.
-   Anything not known yet can be left empty and is hidden on the page: `brn: ''`, no `email` / `office`, `languages: []`, `stats: []`, `awards: []`, and no `developer` on a project. Projects can link to the agent's own post with `postUrl`.
+   Anything not known yet can be left empty and is hidden on the page: `brn: ''`, no `email`, `languages: []`, and no `developer` or `photos` on a project. Projects can link to the agent's own post with `postUrl`.
 2. **Photos:** drop the agent's photos into `public/images/`, either replacing the placeholder files (same names) or updating the paths in `content.ts`. Recommended sizes:
    - headshot: square, at least 600×600 (shown round)
-   - project photos: 1600×1200
-   - reels: 720×1120
-   - hero background: 1920×1200
+   - project photos: 1600×1200, added as `photos: [...]` on a project
+   - Instagram covers: 720×960
 
    Compress them first, e.g. with squoosh.app.
-3. **Look:** pick a preset in `site.config.ts` (`noir`, `ivory`, `marina`) or edit `styles/theme.css`.
+3. **Look:** pick a preset in `site.config.ts` (`paper` or `ink`) or edit `styles/theme.css`.
 4. Empty `content.todo` as you confirm each item. While it isn't empty, `npm run dev` shows a yellow reminder badge (never in production builds).
 
 ## Going live

@@ -14,7 +14,20 @@ interface LangContextValue {
 
 const LangContext = createContext<LangContextValue | null>(null);
 
+function applyLang(lang: Lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
+
 function initialLang(): Lang {
+  const lang = detectLang();
+  // Set before the first render so Arabic pages don't paint in LTR first (layout shift).
+  applyLang(lang);
+  return lang;
+}
+
+function detectLang(): Lang {
   const param = new URLSearchParams(window.location.search).get('lang');
   if (param === 'en' || param === 'ar') return param;
   try {
@@ -30,9 +43,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(initialLang);
 
   useEffect(() => {
-    const html = document.documentElement;
-    html.lang = lang;
-    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    applyLang(lang);
     try {
       localStorage.setItem('lang', lang);
     } catch {

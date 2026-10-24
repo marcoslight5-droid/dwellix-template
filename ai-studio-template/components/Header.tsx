@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { content } from '../data/content';
 import { useLang } from '../lib/i18n';
-import { firstName } from '../lib/utils';
-import { WhatsAppButton } from './WhatsAppButton';
+import { firstName, whatsappLink } from '../lib/utils';
 
 export function Header() {
   const { s, t, lang, setLang } = useLang();
@@ -10,44 +9,42 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const links = [
-    ['#projects', s.nav.projects],
-    ['#invest', s.nav.invest],
-    ['#about', s.nav.about],
-    ['#contact', s.nav.contact],
-  ] as const;
-
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="container header-inner">
-        <a className="brand" href="#top">
-          <span className="brand-name">{t(agent.name)}</span>
-          <span className="brand-role">{t(agent.role)}</span>
+        <a className="wordmark" href="#top">
+          {t(agent.name)}
         </a>
         <nav className="nav" aria-label="Main">
-          {links.map(([href, label]) => (
-            <a key={href} href={href}>
-              {label}
-            </a>
-          ))}
+          <a href="#projects">{s.nav.projects}</a>
+          <a href="#approach">{s.nav.approach}</a>
+          <a href="#about">{s.nav.about}</a>
+          <a href="#contact">{s.nav.contact}</a>
         </nav>
         <div className="header-actions">
           <button
             type="button"
-            className="lang-toggle"
+            className="text-btn"
             lang={lang === 'en' ? 'ar' : 'en'}
             title={s.switchLangLabel}
             onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
           >
             {s.switchLang}
           </button>
-          <WhatsAppButton variant="small" label={s.whatsapp} message={s.msgGeneral(firstName(t(agent.name)))} className="header-wa" />
+          <a
+            className="text-btn text-btn-accent"
+            href={whatsappLink(agent.whatsapp, s.msgGeneral(firstName(t(agent.name))))}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {s.whatsapp}
+          </a>
         </div>
       </div>
     </header>

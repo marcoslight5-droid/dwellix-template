@@ -5,13 +5,14 @@ import { projectCta } from '../lib/projectMessage';
 import { Icon } from './Icon';
 import { WhatsAppButton } from './WhatsAppButton';
 
-/** Full-screen project sheet with a swipeable gallery. Opened via #/project/<id>. */
+/** Project sheet: photo gallery (or a typographic cover), facts and a WhatsApp CTA. Opened via #/project/<id>. */
 export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void }) {
   const { s, t } = useLang();
   const project = content.projects.find((p) => p.id === id);
   const trackRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [index, setIndex] = useState(0);
+  const photos = project?.photos ?? [];
 
   useEffect(() => {
     document.body.classList.add('no-scroll');
@@ -38,6 +39,7 @@ export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void
   }, [id]);
 
   if (!project) return null;
+  const number = String(content.projects.indexOf(project) + 1).padStart(2, '0');
 
   const go = (i: number) => {
     const track = trackRef.current;
@@ -64,31 +66,41 @@ export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void
           <Icon name="close" size={22} />
         </button>
 
-        <div className="gallery">
-          <div className="gallery-track" ref={trackRef} tabIndex={0}>
-            {project.gallery.map((src, i) => (
-              <img key={src} src={src} alt={`${t(project.name)} (${i + 1}/${project.gallery.length})`} loading={i === 0 ? 'eager' : 'lazy'} />
-            ))}
+        {photos.length > 0 ? (
+          <div className="gallery">
+            <div className="gallery-track" ref={trackRef} tabIndex={0}>
+              {photos.map((src, i) => (
+                <img key={src} src={src} alt={`${t(project.name)} (${i + 1}/${photos.length})`} loading={i === 0 ? 'eager' : 'lazy'} />
+              ))}
+            </div>
+            {photos.length > 1 && (
+              <>
+                <button type="button" className="gallery-nav prev" onClick={() => go(index - 1)} aria-label={s.prevPhoto}>
+                  <Icon name="chevron" flip />
+                </button>
+                <button type="button" className="gallery-nav next" onClick={() => go(index + 1)} aria-label={s.nextPhoto}>
+                  <Icon name="chevron" />
+                </button>
+                <p className="gallery-count">
+                  <bdi>
+                    {index + 1} / {photos.length}
+                  </bdi>
+                </p>
+              </>
+            )}
           </div>
-          {project.gallery.length > 1 && (
-            <>
-              <button type="button" className="gallery-nav prev" onClick={() => go(index - 1)} aria-label={s.prevPhoto}>
-                <Icon name="chevron" flip />
-              </button>
-              <button type="button" className="gallery-nav next" onClick={() => go(index + 1)} aria-label={s.nextPhoto}>
-                <Icon name="chevron" />
-              </button>
-              <p className="gallery-count">
-                <bdi>
-                  {index + 1} / {project.gallery.length}
-                </bdi>
-              </p>
-            </>
-          )}
-        </div>
+        ) : (
+          <div className="cover" aria-hidden="true">
+            <span className="cover-no">
+              <bdi>{number}</bdi>
+            </span>
+            <span className="cover-cat">{s.categories[project.category]}</span>
+            <span className="cover-loc">{t(project.location)}</span>
+          </div>
+        )}
 
         <div className="sheet-body">
-          {project.developer && <p className="eyebrow">{project.developer}</p>}
+          {project.developer && <p className="kicker">{project.developer}</p>}
           <h2 id="sheet-title">{t(project.name)}</h2>
           <p className="sheet-summary">{t(project.summary)}</p>
 
@@ -102,12 +114,9 @@ export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void
           </dl>
 
           <h3 className="label">{s.highlights}</h3>
-          <ul className="checklist">
+          <ul className="ticks">
             {project.highlights.map((h) => (
-              <li key={h.en}>
-                <Icon name="check" size={18} />
-                {t(h)}
-              </li>
+              <li key={h.en}>{t(h)}</li>
             ))}
           </ul>
 

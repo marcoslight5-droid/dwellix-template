@@ -5,7 +5,7 @@ This project is a standard **React + TypeScript + Vite** app, the same shape as 
 | What | Where | AI should… |
 | --- | --- | --- |
 | Every word on the site (EN + AR) | `data/content.ts`, `data/ui.ts` | leave alone unless asked to change copy |
-| Colours, fonts, radii, spacing | `styles/theme.css` (3 presets: `noir`, `ivory`, `marina`) | change freely |
+| Colours, fonts, radii, spacing | `styles/theme.css` (2 presets: `paper`, `ink`) | change freely |
 | Layout and component styling | `styles/global.css` | change freely |
 | Section markup | `components/*.tsx` | change structure, keep reading text from `content` / `s` |
 | Section order | `App.tsx` | reorder, remove or add sections |
@@ -41,11 +41,11 @@ Rules:
 
 ## Redesign prompts that work well
 
-- "Switch to a light editorial look: use the `ivory` preset in site.config.ts, then make headings larger and the project cards borderless with more whitespace."
+- "Switch to the dark `ink` preset in site.config.ts and make the hero headline one size smaller."
 - "Create a new theme preset called `desert` in styles/theme.css: warm sand background, terracotta accent, deep brown text. Select it in site.config.ts."
 - "Turn the hero into a full-screen video-style layout: the portrait as a large image on the inline-end side, name and tagline overlaid at the bottom. Keep all text from content.ts."
-- "Replace the project grid with a horizontal snap carousel on mobile and a 3-column grid on desktop."
-- "Move the Recognition section above Projects and make the awards a single row of compact badges."
+- "Turn the project index into large image cards once projects have `photos`, keeping the numbered rows on phones."
+- "Move the Recognition & activity section above How I work."
 - "Use Playfair Display for headings and Inter for body text (Arabic: keep IBM Plex Sans Arabic). Update index.html and styles/theme.css."
 - "Add a 'Market insights' section after Invest with three article cards. Add the content to data/content.ts in English and Arabic."
 

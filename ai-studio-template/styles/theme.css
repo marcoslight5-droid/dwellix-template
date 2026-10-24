@@ -5,80 +5,69 @@
  */
 
 :root,
-[data-theme='noir'] {
-  /* Colour */
-  --color-bg: #0b0c0e;
-  --color-bg-alt: #121417;
-  --color-surface: #17191d;
-  --color-surface-2: #1e2126;
-  --color-text: #f3efe7;
-  --color-text-muted: #a8a296;
-  --color-line: rgb(243 239 231 / 0.12);
-  --color-accent: #c8a96a; /* champagne gold */
-  --color-accent-strong: #d9be86;
-  --color-accent-text: #14110b; /* text on accent buttons */
-  --color-hero-overlay: linear-gradient(180deg, rgb(11 12 14 / 0.55) 0%, rgb(11 12 14 / 0.75) 55%, #0b0c0e 100%);
-  --color-header-bg: rgb(11 12 14 / 0.78);
+[data-theme='paper'] {
+  /* Colour: warm paper, near-black ink, one deep green accent. */
+  --color-bg: #f3efe7;
+  --color-bg-tint: #ebe5d9;
+  --color-surface: #faf8f3;
+  --color-text: #171614;
+  --color-text-muted: #6b665d;
+  --color-line: rgb(23 22 20 / 0.14);
+  --color-line-strong: rgb(23 22 20 / 0.85);
+  --color-accent: #1f4a3a;
+  --color-accent-hover: #163a2d;
+  --color-accent-text: #f3efe7;
+  /* The closing contact block is inverted. */
+  --color-invert-bg: #171614;
+  --color-invert-text: #f3efe7;
+  --color-invert-muted: #a39d92;
+  --color-invert-line: rgb(243 239 231 / 0.18);
+  --color-cover-bg: #1f4a3a;
+  --color-cover-text: #e9e2d2;
+  --color-header-bg: rgb(243 239 231 / 0.9);
 
   /* Typography */
-  --font-display: 'Cormorant Garamond', 'Noto Naskh Arabic', Georgia, serif;
-  --font-body: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display-weight: 500;
-  --tracking-eyebrow: 0.2em;
+  --font-display: 'Instrument Serif', 'Noto Naskh Arabic', Georgia, serif;
+  --font-body: 'IBM Plex Sans', 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display-weight: 400;
 
-  /* Shape & depth */
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
+  /* Shape */
+  --radius: 2px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px rgb(0 0 0 / 0.35);
 
   /* Layout */
-  --container: 1200px;
+  --container: 1240px;
   --gutter: 20px;
-  --section-space: 72px;
+  --section-space: 88px;
 
-  color-scheme: dark;
-}
-
-/* Light editorial preset */
-[data-theme='ivory'] {
-  --color-bg: #f8f5ef;
-  --color-bg-alt: #efe9df;
-  --color-surface: #ffffff;
-  --color-surface-2: #f4efe6;
-  --color-text: #1b1a17;
-  --color-text-muted: #6b655b;
-  --color-line: rgb(27 26 23 / 0.12);
-  --color-accent: #8a6a2f;
-  --color-accent-strong: #6f5422;
-  --color-accent-text: #ffffff;
-  --color-hero-overlay: linear-gradient(180deg, rgb(248 245 239 / 0.35) 0%, rgb(248 245 239 / 0.85) 60%, #f8f5ef 100%);
-  --color-header-bg: rgb(248 245 239 / 0.85);
-  --shadow-card: 0 1px 2px rgb(27 26 23 / 0.05), 0 16px 36px rgb(27 26 23 / 0.08);
   color-scheme: light;
 }
 
-/* Navy & sand preset */
-[data-theme='marina'] {
-  --color-bg: #0c1726;
-  --color-bg-alt: #102033;
-  --color-surface: #13263c;
-  --color-surface-2: #183049;
-  --color-text: #f2ede4;
-  --color-text-muted: #a3b1c2;
-  --color-line: rgb(242 237 228 / 0.12);
-  --color-accent: #e3c9a0;
-  --color-accent-strong: #eed8b6;
-  --color-accent-text: #0c1726;
-  --color-hero-overlay: linear-gradient(180deg, rgb(12 23 38 / 0.5) 0%, rgb(12 23 38 / 0.8) 55%, #0c1726 100%);
-  --color-header-bg: rgb(12 23 38 / 0.8);
+/* Dark preset */
+[data-theme='ink'] {
+  --color-bg: #121311;
+  --color-bg-tint: #191a17;
+  --color-surface: #1d1e1b;
+  --color-text: #ece7dc;
+  --color-text-muted: #9a958a;
+  --color-line: rgb(236 231 220 / 0.14);
+  --color-line-strong: rgb(236 231 220 / 0.8);
+  --color-accent: #b9d3c1;
+  --color-accent-hover: #d3e6d9;
+  --color-accent-text: #121311;
+  --color-invert-bg: #ece7dc;
+  --color-invert-text: #121311;
+  --color-invert-muted: #5f5b53;
+  --color-invert-line: rgb(18 19 17 / 0.16);
+  --color-cover-bg: #24382f;
+  --color-cover-text: #e3ddd0;
+  --color-header-bg: rgb(18 19 17 / 0.88);
   color-scheme: dark;
 }
 
 @media (min-width: 900px) {
   :root {
-    --gutter: 40px;
-    --section-space: 112px;
+    --gutter: 48px;
+    --section-space: 136px;
   }
 }

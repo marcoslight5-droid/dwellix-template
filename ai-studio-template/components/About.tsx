@@ -7,29 +7,17 @@ export function About() {
   return (
     <section className="section" id="about" aria-labelledby="about-title">
       <div className="container about">
-        <img className="about-photo" src={agent.photo} alt={t(agent.name)} loading="lazy" decoding="async" width={320} height={320} />
-        <div>
-          <p className="eyebrow">{s.aboutEyebrow}</p>
-          <h2 id="about-title">{t(agent.name)}</h2>
-          <p className="about-role">{t(agent.role)}</p>
-          {agent.bio.map((p) => (
-            <p key={p.en} className="about-text">
+        <div className="about-side">
+          <h2 id="about-title">{s.aboutTitle}</h2>
+          <img className="about-photo" src={agent.photo} alt={t(agent.name)} loading="lazy" decoding="async" width={320} height={320} />
+        </div>
+        <div className="about-body">
+          {agent.bio.map((p, i) => (
+            <p key={p.en} className={i === 0 ? 'about-lead' : 'about-text'}>
               {t(p)}
             </p>
           ))}
-          <dl className="facts facts-inline">
-            {agent.languages.length > 0 && (
-              <div>
-                <dt>{s.languages}</dt>
-                <dd>
-                  <ul className="pills">
-                    {agent.languages.map((l) => (
-                      <li key={l}>{l}</li>
-                    ))}
-                  </ul>
-                </dd>
-              </div>
-            )}
+          <dl className="facts">
             <div>
               <dt>{s.agency}</dt>
               <dd>{t(agent.agency)}</dd>
@@ -40,6 +28,12 @@ export function About() {
                 <dd>
                   <bdi>{agent.brn}</bdi>
                 </dd>
+              </div>
+            )}
+            {agent.languages.length > 0 && (
+              <div>
+                <dt>{s.languages}</dt>
+                <dd>{agent.languages.join(' · ')}</dd>
               </div>
             )}
           </dl>

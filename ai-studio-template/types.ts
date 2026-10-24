@@ -93,8 +93,21 @@ export interface Faq {
   a: L;
 }
 
+/** Full-bleed photography used as section backgrounds. Any slot can be left out. */
+export interface Visuals {
+  /** Hero background (dark overlay is added automatically). */
+  hero?: string;
+  /** Full-width image band after the projects. */
+  band?: string;
+  /** Three photos shown side by side before About. */
+  gallery?: string[];
+  /** Background of the closing contact section. */
+  contact?: string;
+}
+
 export interface SiteContent {
   agent: Agent;
+  visuals: Visuals;
   projects: Project[];
   /** "How I work", three short steps. */
   process: Step[];

@@ -38,7 +38,12 @@ export function Contact() {
   );
 
   return (
-    <section className="contact" id="contact" aria-labelledby="contact-title">
+    <section className={`contact${content.visuals.contact ? ' contact--image' : ''}`} id="contact" aria-labelledby="contact-title">
+      {content.visuals.contact && (
+        <div className="contact-media" aria-hidden="true">
+          <img src={content.visuals.contact} alt="" loading="lazy" decoding="async" />
+        </div>
+      )}
       <div className="container contact-inner">
         <form className="brief" onSubmit={submit}>
           <h2 id="contact-title">{s.consultTitle}</h2>

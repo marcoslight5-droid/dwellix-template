@@ -8,7 +8,7 @@ The current content is a **pitch preview** for Akram Zubair ([@dubairealtorzubay
 
 It's designed for an **off-plan and investment advisor**: an agent who sells developer launches (Emaar, Omniyat, Azizi…), waterfront and branded residences, and some commercial space. Their clients are mostly investors, including overseas buyers. So the site leads with:
 
-1. **Hero:** a large serif statement, his headshot with a one-line intro, and the WhatsApp call to action
+1. **Hero:** a full-screen photo (`visuals.hero`) behind a large serif statement, his headshot with a one-line intro, and the WhatsApp call to action. Further photo slots: a band after the projects, a three-photo band before About, and the contact background (`visuals` in `content.ts`)
 2. **Current projects:** a numbered index (developer, homes, status, price); each row opens a sheet with photos (or a typographic cover when there are none), facts, highlights, a WhatsApp button and a link to his post
 3. **How I work:** three steps, plus short facts about buying in Dubai
 4. **Recognition & activity:** press, award and events as a dated list, plus a strip of his Instagram posts

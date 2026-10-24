@@ -49,6 +49,19 @@ export const content: SiteContent = {
     languages: [],
   },
 
+  // Photos supplied for the site (hosted on ImgBB). To use a different photo in a slot,
+  // swap its URL; to self-host, put the file in public/images/ and use '/images/name.jpg'.
+  visuals: {
+    hero: 'https://i.ibb.co.com/7xXShKjg/qvsfw.jpg',
+    band: 'https://i.ibb.co.com/d48G20jh/i0p-BV.jpg',
+    contact: 'https://i.ibb.co.com/6cKd5Xd7/v-Gstd.jpg',
+    gallery: [
+      'https://i.ibb.co.com/TxwZqbQD/W6LK7.jpg',
+      'https://i.ibb.co.com/ksWJ3SxR/1nf-LA.jpg',
+      'https://i.ibb.co.com/t5M74cf/s-YIPR.jpg',
+    ],
+  },
+
   // In the order they appear on the site. Sources: his posts (postUrl on each project).
   // Add real renders with `photos: ['/images/...']`; without photos a typographic cover is shown.
   projects: [

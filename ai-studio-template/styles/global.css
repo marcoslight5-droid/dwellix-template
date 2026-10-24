@@ -1316,3 +1316,172 @@ a.ledger-row:hover .ledger-go {
     padding-block-end: 40px;
   }
 }
+
+/* ---------- Photography ---------- */
+
+/* Hero with a background photo: full-height, light text over a dark gradient. */
+.hero--image {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-block-size: calc(100svh - 64px);
+  padding-block: 120px 48px;
+  border-block-end: 0;
+  color: #f6f2ea;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #1c1b18;
+}
+
+.hero-media img,
+.contact-media img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(12 12 11 / 0.25) 0%, rgb(12 12 11 / 0.1) 35%, rgb(12 12 11 / 0.78) 100%),
+    linear-gradient(90deg, rgb(12 12 11 / 0.35), transparent 70%);
+}
+
+[dir='rtl'] .hero-media::after {
+  background:
+    linear-gradient(180deg, rgb(12 12 11 / 0.25) 0%, rgb(12 12 11 / 0.1) 35%, rgb(12 12 11 / 0.78) 100%),
+    linear-gradient(270deg, rgb(12 12 11 / 0.35), transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+}
+
+.hero--image .kicker,
+.hero--image .byline p {
+  color: rgb(246 242 234 / 0.82);
+}
+
+.hero--image .hero-headline {
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.25);
+}
+
+.hero--image .byline img {
+  box-shadow: 0 0 0 2px rgb(246 242 234 / 0.9);
+}
+
+.hero--image .btn-primary {
+  background: #f6f2ea;
+  color: #171614;
+}
+
+.hero--image .btn-primary:hover {
+  background: #ffffff;
+}
+
+.hero--image .btn-quiet {
+  color: #f6f2ea;
+}
+
+.hero--image .btn-quiet:hover {
+  color: #ffffff;
+}
+
+/* Full-width photo band */
+.image-band {
+  block-size: 56svh;
+  min-block-size: 280px;
+  max-block-size: 720px;
+  overflow: hidden;
+  background: var(--color-bg-tint);
+}
+
+.image-band img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* Three-photo band */
+.gallery-band {
+  display: grid;
+  grid-auto-columns: 78%;
+  grid-auto-flow: column;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.gallery-band::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-band img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  scroll-snap-align: start;
+  background: var(--color-bg-tint);
+}
+
+/* Contact over a photo */
+.contact--image {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.contact-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(18 17 15 / 0.82);
+}
+
+@media (min-width: 960px) {
+  .hero--image {
+    min-block-size: calc(100svh - 64px);
+    padding-block: 160px 72px;
+  }
+
+  .gallery-band {
+    grid-auto-columns: auto;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .gallery-band img {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* Over a photo the headline is a little smaller so the call to action stays above the fold. */
+.hero--image .hero-headline {
+  font-size: clamp(2.7rem, 11vw, 6.2rem);
+}
+
+:lang(ar) .hero--image .hero-headline {
+  font-size: clamp(2rem, 8.5vw, 4.4rem);
+}
+
+@media (min-width: 960px) {
+  .hero--image .hero-foot {
+    margin-block-start: 48px;
+  }
+}

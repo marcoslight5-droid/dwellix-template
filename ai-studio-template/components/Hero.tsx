@@ -6,11 +6,16 @@ import { WhatsAppButton } from './WhatsAppButton';
 
 export function Hero() {
   const { s, t } = useLang();
-  const { agent } = content;
+  const { agent, visuals } = content;
 
   return (
-    <section className="hero" id="top">
-      <div className="container">
+    <section className={`hero${visuals.hero ? ' hero--image' : ''}`} id="top">
+      {visuals.hero && (
+        <div className="hero-media" aria-hidden="true">
+          <img src={visuals.hero} alt="" fetchPriority="high" decoding="async" />
+        </div>
+      )}
+      <div className="container hero-content">
         <p className="kicker">
           <span>{t(agent.role)}</span>
           <span aria-hidden="true">/</span>

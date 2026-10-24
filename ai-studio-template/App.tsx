@@ -12,6 +12,7 @@ import { Activity } from './components/Activity';
 import { About } from './components/About';
 import { Faq } from './components/Faq';
 import { Contact, Footer, FloatingWhatsApp } from './components/Contact';
+import { ImageBand, Gallery } from './components/Visuals';
 
 /**
  * Page order lives here: reorder, remove or duplicate sections freely.
@@ -71,8 +72,10 @@ export default function App() {
       <main>
         <Hero />
         <Projects onOpen={openProject} />
+        <ImageBand />
         <Approach />
         <Activity />
+        <Gallery />
         <About />
         <Faq />
         <Contact />

@@ -18,22 +18,30 @@ export function About() {
             </p>
           ))}
           <dl className="facts facts-inline">
+            {agent.languages.length > 0 && (
+              <div>
+                <dt>{s.languages}</dt>
+                <dd>
+                  <ul className="pills">
+                    {agent.languages.map((l) => (
+                      <li key={l}>{l}</li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            )}
             <div>
-              <dt>{s.languages}</dt>
-              <dd>
-                <ul className="pills">
-                  {agent.languages.map((l) => (
-                    <li key={l}>{l}</li>
-                  ))}
-                </ul>
-              </dd>
+              <dt>{s.agency}</dt>
+              <dd>{t(agent.agency)}</dd>
             </div>
-            <div>
-              <dt>{s.brn}</dt>
-              <dd>
-                <bdi>{agent.brn}</bdi> · {t(agent.agency)}
-              </dd>
-            </div>
+            {agent.brn && (
+              <div>
+                <dt>{s.brn}</dt>
+                <dd>
+                  <bdi>{agent.brn}</bdi>
+                </dd>
+              </div>
+            )}
           </dl>
         </div>
       </div>

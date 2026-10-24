@@ -40,11 +40,11 @@ export default function App() {
       description: t(agent.tagline),
       image: new URL(agent.photo, window.location.origin).href,
       telephone: agent.phone,
-      email: agent.email,
+      ...(agent.email ? { email: agent.email } : {}),
       sameAs: [agent.instagram.url, agent.linkedin].filter(Boolean),
-      knowsLanguage: agent.languages,
+      ...(agent.languages.length ? { knowsLanguage: agent.languages } : {}),
       areaServed: 'Dubai',
-      identifier: { '@type': 'PropertyValue', name: 'RERA BRN', value: agent.brn },
+      ...(agent.brn ? { identifier: { '@type': 'PropertyValue', name: 'RERA BRN', value: agent.brn } } : {}),
       address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
     };
     let script = document.getElementById('ld-agent');

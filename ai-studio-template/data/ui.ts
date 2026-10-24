@@ -24,6 +24,8 @@ const en = {
   paymentPlan: 'Payment plan',
   highlights: 'Highlights',
   requestBrochure: 'Request brochure & payment plan',
+  requestViewing: 'Ask about availability & viewing',
+  viewPost: 'See the original post',
   close: 'Close',
   prevPhoto: 'Previous photo',
   nextPhoto: 'Next photo',
@@ -62,6 +64,7 @@ const en = {
   followInstagram: 'Follow on Instagram',
   aboutEyebrow: 'About',
   languages: 'Languages',
+  agency: 'Agency',
   office: 'Office',
   faqEyebrow: 'Good to know',
   faqTitle: 'Buying in Dubai: common questions',
@@ -78,6 +81,8 @@ const en = {
   msgGeneral: (name: string) => `Hi ${name}, I found your website and would like advice on buying property in Dubai.`,
   msgProject: (name: string, project: string, location: string) =>
     `Hi ${name}, I'm interested in ${project} (${location}). Could you send me the brochure, price list and payment plan?`,
+  msgReady: (name: string, project: string, location: string) =>
+    `Hi ${name}, I'm interested in ${project} (${location}). Is it still available? I'd like to arrange a viewing.`,
   msgConsult: (name: string, f: { name: string; goal: string; budget: string; timeline: string }) =>
     `Hi ${name}, I'd like to book a consultation.\nName: ${f.name || '-'}\nBuying for: ${f.goal}\nBudget: ${f.budget}\nTimeline: ${f.timeline}`,
 };
@@ -109,6 +114,8 @@ const ar: UI = {
   paymentPlan: 'خطة الدفع',
   highlights: 'أبرز المزايا',
   requestBrochure: 'اطلب الكتيب وخطة الدفع',
+  requestViewing: 'اسأل عن التوفر وموعد المعاينة',
+  viewPost: 'شاهد المنشور الأصلي',
   close: 'إغلاق',
   prevPhoto: 'الصورة السابقة',
   nextPhoto: 'الصورة التالية',
@@ -147,6 +154,7 @@ const ar: UI = {
   followInstagram: 'تابعني على إنستغرام',
   aboutEyebrow: 'نبذة',
   languages: 'اللغات',
+  agency: 'الوكالة',
   office: 'المكتب',
   faqEyebrow: 'معلومات مفيدة',
   faqTitle: 'الشراء في دبي: أسئلة شائعة',
@@ -163,6 +171,8 @@ const ar: UI = {
   msgGeneral: (name: string) => `مرحباً ${name}، اطلعت على موقعك وأرغب في استشارة حول شراء عقار في دبي.`,
   msgProject: (name: string, project: string, location: string) =>
     `مرحباً ${name}، أنا مهتم بمشروع ${project} (${location}). هل يمكنك إرسال الكتيب وقائمة الأسعار وخطة الدفع؟`,
+  msgReady: (name: string, project: string, location: string) =>
+    `مرحباً ${name}، أنا مهتم بهذا العقار: ${project} (${location}). هل لا يزال متاحاً؟ أرغب في ترتيب معاينة.`,
   msgConsult: (name: string, f: { name: string; goal: string; budget: string; timeline: string }) =>
     `مرحباً ${name}، أرغب في حجز استشارة.\nالاسم: ${f.name || '-'}\nالغرض: ${f.goal}\nالميزانية: ${f.budget}\nالتوقيت: ${f.timeline}`,
 };

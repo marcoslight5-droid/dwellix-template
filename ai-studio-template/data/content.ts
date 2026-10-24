@@ -4,7 +4,8 @@
  * (styles/theme.css, components/) without touching what it says.
  *
  * Content is drafted from the public Instagram profile @dubairealtorzubayr
- * ("Realtor Zubayr"), his LinkedIn and his Estate Magazine feature.
+ * ("Realtor Zubayr"), the posts linked on each project, his LinkedIn URL and
+ * his Estate Magazine feature. Optional fields left empty are hidden on the page.
  * Anything not confirmed by the agent is listed in `todo` at the bottom:
  * check each item with him and delete it from the list once it's correct.
  */
@@ -20,8 +21,8 @@ export const content: SiteContent = {
     },
     bio: [
       {
-        en: 'I help investors and end-users choose the right Dubai property at the right stage, from the first launch event to handover and beyond. My focus is off-plan launches by leading developers, waterfront and branded residences, and Grade A commercial space.',
-        ar: 'أساعد المستثمرين والمشترين بغرض السكن على اختيار العقار المناسب في دبي في الوقت المناسب، من فعالية الإطلاق الأولى وحتى التسليم وما بعده. أركّز على المشاريع على الخارطة من كبار المطورين، والمساكن المطلة على الواجهة البحرية والمساكن ذات العلامات التجارية، والمساحات التجارية من الفئة الممتازة.',
+        en: 'I help investors and end-users choose the right Dubai property at the right stage, from the first launch event to handover and beyond. My focus is off-plan launches by leading developers, ready homes, waterfront communities and Grade A commercial space.',
+        ar: 'أساعد المستثمرين والمشترين بغرض السكن على اختيار العقار المناسب في دبي في الوقت المناسب، من فعالية الإطلاق الأولى وحتى التسليم وما بعده. أركّز على المشاريع على الخارطة من كبار المطورين، والمنازل الجاهزة، والمجتمعات المطلة على الواجهة البحرية، والمساحات التجارية من الفئة الممتازة.',
       },
       {
         en: 'Every client gets straight numbers: payment plans, service charges, realistic rental yields and resale potential, so decisions are made on facts, not hype. I also look after investor relations for overseas buyers, handling viewings, paperwork and handover remotely.',
@@ -30,17 +31,17 @@ export const content: SiteContent = {
     ],
     photo: '/images/portrait.jpg',
     photoAlt: '/images/portrait-2.jpg',
-    agency: { en: 'Agency name', ar: 'اسم الوكالة' },
-    brn: '00000',
-    // From his "Grade A offices on Sheikh Zayed Road" post.
+    // He is tagged on @rino.properties (rinoproperties.com). Unconfirmed: see todo.
+    agency: { en: 'Rino Properties', ar: 'رينو للعقارات' },
+    // RERA BRN not found yet; the BRN is hidden on the page while this is empty.
+    brn: '',
+    // Shown in his Oct 4 Riviera reel and his Sheikh Zayed Road offices flyer.
     whatsapp: '+971585365991',
     phone: '+971585365991',
-    email: 'hello@example.com',
     instagram: { handle: '@dubairealtorzubayr', url: 'https://www.instagram.com/dubairealtorzubayr/' },
     linkedin: 'https://www.linkedin.com/in/akramzubair',
-    languages: ['English'],
-    office: { en: 'Business Bay, Dubai', ar: 'الخليج التجاري، دبي' },
-    mapUrl: 'https://maps.google.com/?q=Business+Bay+Dubai',
+    // Not found yet: languages, email and office are hidden until filled in.
+    languages: [],
   },
 
   // Hidden until real numbers are confirmed (years, deals closed, clients advised…).
@@ -65,30 +66,30 @@ export const content: SiteContent = {
     },
     {
       icon: 'wave',
-      title: { en: 'Waterfront & branded living', ar: 'مساكن الواجهة البحرية والعلامات التجارية' },
+      title: { en: 'Waterfront living', ar: 'الحياة على الواجهة البحرية' },
       text: {
-        en: 'Marina, harbour and island addresses with hotel-grade services, from Mina Rashid to Dubai Maritime City.',
-        ar: 'عناوين على المرسى والميناء والجزر مع خدمات بمستوى الفنادق، من ميناء راشد إلى مدينة دبي الملاحية.',
+        en: 'Marina and island addresses, from Rashid Yachts & Marina at Mina Rashid to new launches on Dubai Islands.',
+        ar: 'عناوين على المرسى والجزر، من راشد يخوت ومارينا في ميناء راشد إلى الإطلاقات الجديدة في جزر دبي.',
       },
     },
     {
       icon: 'briefcase',
       title: { en: 'Commercial property', ar: 'العقارات التجارية' },
       text: {
-        en: 'Grade A offices on Sheikh Zayed Road and in Business Bay for owner-occupiers and income investors.',
-        ar: 'مكاتب من الفئة الممتازة على شارع الشيخ زايد وفي الخليج التجاري لمن يرغب في الاستخدام أو الاستثمار بعائد.',
+        en: 'Grade A offices on Sheikh Zayed Road for owner-occupiers and income investors.',
+        ar: 'مكاتب من الفئة الممتازة على شارع الشيخ زايد لمن يرغب في الاستخدام أو الاستثمار بعائد.',
       },
     },
   ],
 
+  // In the order they appear on the site. Sources: his posts (postUrl on each project).
   projects: [
     {
       id: 'grade-a-offices-szr',
       name: { en: 'Grade A Office Tower, Sheikh Zayed Road', ar: 'برج مكاتب من الفئة الممتازة، شارع الشيخ زايد' },
-      developer: 'Private release',
       location: { en: 'Sheikh Zayed Road, between DIFC, Downtown and Business Bay', ar: 'شارع الشيخ زايد، بين مركز دبي المالي العالمي ووسط المدينة والخليج التجاري' },
       category: 'commercial',
-      status: { en: 'Off-plan · Handover Q2 2031', ar: 'على الخارطة · التسليم في الربع الثاني 2031' },
+      status: { en: 'Private release · Off-plan · Handover Q2 2031', ar: 'طرح خاص · على الخارطة · التسليم في الربع الثاني 2031' },
       unitTypes: { en: '332 offices from 1,077 sq ft · Freehold', ar: '332 مكتباً بمساحات تبدأ من 1,077 قدماً مربعاً · تملك حر' },
       price: { en: 'Indicative from AED 4,000/sq ft', ar: 'أسعار استرشادية تبدأ من 4,000 درهم للقدم المربع' },
       paymentPlan: { en: '20/30/50', ar: '20/30/50' },
@@ -104,29 +105,74 @@ export const content: SiteContent = {
         { en: 'Freehold ownership', ar: 'تملك حر' },
         { en: '20/30/50 payment plan, handover Q2 2031', ar: 'خطة دفع 20/30/50 والتسليم في الربع الثاني 2031' },
       ],
+      postUrl: 'https://www.instagram.com/dubairealtorzubayr/p/Dev4D9ltO4W/',
     },
     {
-      id: 'beyond-maritime-city',
-      name: { en: 'BEYOND Waterfront Residences', ar: 'مساكن BEYOND على الواجهة البحرية' },
-      developer: 'BEYOND by Omniyat',
-      location: { en: 'Dubai Maritime City', ar: 'مدينة دبي الملاحية' },
+      id: 'arancia-yards-2',
+      name: { en: 'Arancia Yards 2', ar: 'أرانسيا ياردز 2' },
+      developer: 'BEYOND',
+      location: { en: 'The Yards, City of Arabia', ar: 'ذا ياردز، سيتي أوف أرابيا' },
       category: 'off-plan',
-      waterfront: true,
-      status: { en: 'Off-plan · Handover TBC', ar: 'على الخارطة · موعد التسليم يُحدَّد لاحقاً' },
-      unitTypes: { en: '1–4 bedroom apartments & penthouses', ar: 'شقق من غرفة إلى أربع غرف وبنتهاوس' },
+      status: { en: 'Off-plan · Handover Q1 2029', ar: 'على الخارطة · التسليم في الربع الأول 2029' },
+      unitTypes: { en: '1–3 bedroom low-rise apartments', ar: 'شقق من غرفة إلى ثلاث غرف في مبانٍ منخفضة الارتفاع' },
       price: { en: 'Price on request', ar: 'السعر عند الطلب' },
-      paymentPlan: { en: 'Developer payment plan available', ar: 'خطة دفع ميسّرة من المطور' },
-      image: '/images/project-beyond-1.jpg',
-      gallery: ['/images/project-beyond-1.jpg', '/images/project-beyond-2.jpg', '/images/project-beyond-3.jpg'],
+      paymentPlan: { en: '40/60', ar: '40/60' },
+      image: '/images/project-arancia-1.jpg',
+      gallery: ['/images/project-arancia-1.jpg', '/images/project-arancia-2.jpg', '/images/project-arancia-3.jpg'],
       summary: {
-        en: 'Sculpted towers on the water between Port Rashid and the Sheikh Zayed Road skyline, with resort-style podium amenities and open sea views.',
-        ar: 'أبراج بتصاميم منحوتة على الماء بين ميناء راشد وأفق شارع الشيخ زايد، مع مرافق على طراز المنتجعات وإطلالات مفتوحة على البحر.',
+        en: 'Low-rise residences by BEYOND in The Yards at City of Arabia, with one to three bedroom homes on a 40/60 payment plan.',
+        ar: 'مساكن منخفضة الارتفاع من BEYOND في ذا ياردز بسيتي أوف أرابيا، تضم شققاً من غرفة إلى ثلاث غرف بخطة دفع 40/60.',
       },
       highlights: [
-        { en: 'Panoramic sea and skyline views', ar: 'إطلالات بانورامية على البحر وأفق المدينة' },
-        { en: 'Resort-style pools and wellness deck', ar: 'مسابح على طراز المنتجعات ومنطقة للعافية' },
-        { en: 'Minutes to Downtown and DIFC', ar: 'على بُعد دقائق من وسط المدينة ومركز دبي المالي العالمي' },
+        { en: 'Low-rise living', ar: 'مبانٍ منخفضة الارتفاع' },
+        { en: '1, 2 and 3 bedroom homes', ar: 'شقق بغرفة وغرفتين وثلاث غرف' },
+        { en: '40/60 payment plan, handover Q1 2029', ar: 'خطة دفع 40/60 والتسليم في الربع الأول 2029' },
       ],
+      postUrl: 'https://www.instagram.com/dubairealtorzubayr/p/DeMcIhFjYf8/',
+    },
+    {
+      id: 'casagrand-hermina',
+      name: { en: 'Casagrand Hermina', ar: 'كاساغراند هيرمينا' },
+      developer: 'Casagrand',
+      location: { en: 'Dubai Islands', ar: 'جزر دبي' },
+      category: 'off-plan',
+      status: { en: 'Off-plan · Handover Q2 2028', ar: 'على الخارطة · التسليم في الربع الثاني 2028' },
+      unitTypes: { en: '1–4 bedroom apartments', ar: 'شقق من غرفة إلى أربع غرف' },
+      price: { en: 'From AED 2.3M', ar: 'تبدأ من 2.3 مليون درهم' },
+      paymentPlan: { en: '20% down payment', ar: 'دفعة أولى 20%' },
+      image: '/images/project-hermina-1.jpg',
+      gallery: ['/images/project-hermina-1.jpg', '/images/project-hermina-2.jpg', '/images/project-hermina-3.jpg'],
+      summary: {
+        en: 'One to four bedroom apartments on Dubai Islands from AED 2.3M, with 20% down and handover in Q2 2028.',
+        ar: 'شقق من غرفة إلى أربع غرف في جزر دبي تبدأ من 2.3 مليون درهم، بدفعة أولى 20% والتسليم في الربع الثاني 2028.',
+      },
+      highlights: [
+        { en: 'Dubai Islands address', ar: 'عنوان في جزر دبي' },
+        { en: 'From AED 2.3M with 20% down', ar: 'تبدأ من 2.3 مليون درهم بدفعة أولى 20%' },
+        { en: 'Handover Q2 2028', ar: 'التسليم في الربع الثاني 2028' },
+      ],
+      postUrl: 'https://www.instagram.com/rino.properties/reel/DeZitNvCnTb/',
+    },
+    {
+      id: 'riviera-mbr-city-2br',
+      name: { en: 'Riviera 2 Bedroom, Furnished', ar: 'شقة بغرفتي نوم مفروشة في ريفييرا' },
+      location: { en: 'Riviera, Mohammed Bin Rashid City', ar: 'ريفييرا، مدينة محمد بن راشد' },
+      category: 'ready',
+      status: { en: 'Ready · Furnished', ar: 'جاهزة · مفروشة' },
+      unitTypes: { en: '2 bedrooms · 2 bathrooms · 874 sq ft', ar: 'غرفتا نوم · حمّامان · 874 قدماً مربعاً' },
+      price: { en: 'AED 1,850,000', ar: '1,850,000 درهم' },
+      image: '/images/project-riviera-1.jpg',
+      gallery: ['/images/project-riviera-1.jpg', '/images/project-riviera-2.jpg', '/images/project-riviera-3.jpg'],
+      summary: {
+        en: 'A ready, furnished two bedroom, two bathroom apartment of 874 sq ft in Riviera, Mohammed Bin Rashid City.',
+        ar: 'شقة جاهزة ومفروشة بغرفتي نوم وحمّامين بمساحة 874 قدماً مربعاً في ريفييرا، مدينة محمد بن راشد.',
+      },
+      highlights: [
+        { en: 'Ready to move in', ar: 'جاهزة للسكن' },
+        { en: 'Fully furnished', ar: 'مفروشة بالكامل' },
+        { en: '874 sq ft, 2 bathrooms', ar: '874 قدماً مربعاً وحمّامان' },
+      ],
+      postUrl: 'https://www.instagram.com/dubairealtorzubayr/reel/DeGhFFfhP_Z/',
     },
     {
       id: 'rashid-yachts-marina',
@@ -135,43 +181,17 @@ export const content: SiteContent = {
       location: { en: 'Mina Rashid', ar: 'ميناء راشد' },
       category: 'off-plan',
       waterfront: true,
-      status: { en: 'Off-plan · Phased handovers', ar: 'على الخارطة · تسليم على مراحل' },
-      unitTypes: { en: '1–4 bedroom marina apartments', ar: 'شقق على المارينا من غرفة إلى أربع غرف' },
+      // Details not confirmed yet: kept deliberately general (see todo).
+      status: { en: 'Details on request', ar: 'التفاصيل عند الطلب' },
+      unitTypes: { en: 'Ask for current availability', ar: 'اسأل عن الوحدات المتاحة حالياً' },
       price: { en: 'Price on request', ar: 'السعر عند الطلب' },
-      paymentPlan: { en: 'Developer payment plan available', ar: 'خطة دفع ميسّرة من المطور' },
       image: '/images/project-rashid-1.jpg',
       gallery: ['/images/project-rashid-1.jpg', '/images/project-rashid-2.jpg', '/images/project-rashid-3.jpg'],
       summary: {
-        en: 'A yachting community at Dubai’s historic first port, with a superyacht marina, promenade dining and direct sea access.',
-        ar: 'مجتمع لليخوت في أول موانئ دبي التاريخية، مع مرسى لليخوت الفاخرة وممشى للمطاعم ووصول مباشر إلى البحر.',
+        en: 'A marina community at Mina Rashid, Dubai’s historic port. Message me for current units, prices and payment plans.',
+        ar: 'مجتمع على المرسى في ميناء راشد، ميناء دبي التاريخي. راسلني لمعرفة الوحدات المتاحة والأسعار وخطط الدفع الحالية.',
       },
-      highlights: [
-        { en: 'Superyacht marina on your doorstep', ar: 'مرسى لليخوت الفاخرة أمام منزلك' },
-        { en: 'Waterfront promenade and beach', ar: 'ممشى على الواجهة البحرية وشاطئ' },
-        { en: 'Strong short-let and holiday-home demand', ar: 'طلب قوي على الإيجار القصير وبيوت العطلات' },
-      ],
-    },
-    {
-      id: 'azizi-new-launch',
-      name: { en: 'Azizi New Launch', ar: 'إطلاق جديد من عزيزي' },
-      developer: 'Azizi Developments',
-      location: { en: 'Dubai', ar: 'دبي' },
-      category: 'off-plan',
-      status: { en: 'Off-plan · Launch pricing', ar: 'على الخارطة · أسعار الإطلاق' },
-      unitTypes: { en: 'Studios to 3 bedroom apartments', ar: 'استوديو حتى شقق بثلاث غرف' },
-      price: { en: 'Price on request', ar: 'السعر عند الطلب' },
-      paymentPlan: { en: 'Post-handover options', ar: 'خيارات للدفع بعد التسليم' },
-      image: '/images/project-azizi-1.jpg',
-      gallery: ['/images/project-azizi-1.jpg', '/images/project-azizi-2.jpg', '/images/project-azizi-3.jpg'],
-      summary: {
-        en: 'An entry point to off-plan investing with launch pricing, fully fitted kitchens and 40+ lifestyle amenities.',
-        ar: 'مدخل مثالي للاستثمار على الخارطة بأسعار الإطلاق، مع مطابخ مجهزة بالكامل وأكثر من 40 مرفقاً لأسلوب حياة متكامل.',
-      },
-      highlights: [
-        { en: '40+ amenities', ar: 'أكثر من 40 مرفقاً' },
-        { en: 'Fully fitted kitchens', ar: 'مطابخ مجهزة بالكامل' },
-        { en: 'Investor-friendly unit sizes', ar: 'مساحات وحدات مناسبة للمستثمرين' },
-      ],
+      highlights: [{ en: 'Marina setting at Mina Rashid', ar: 'موقع على المرسى في ميناء راشد' }],
     },
   ],
 
@@ -210,26 +230,8 @@ export const content: SiteContent = {
     },
   ],
 
-  awards: [
-    {
-      title: { en: 'Top Achiever Award', ar: 'جائزة أفضل إنجاز' },
-      issuer: { en: 'Developer sales recognition', ar: 'تكريم مبيعات من المطور' },
-      year: '2025',
-      image: '/images/award-1.jpg',
-    },
-    {
-      title: { en: 'Certificate of Recognition', ar: 'شهادة تقدير' },
-      issuer: { en: 'Developer partner programme', ar: 'برنامج شركاء المطور' },
-      year: '2024',
-      image: '/images/award-2.jpg',
-    },
-    {
-      title: { en: 'Best Deals Award', ar: 'جائزة أفضل الصفقات' },
-      issuer: { en: 'Brokerage awards night', ar: 'حفل جوائز الوساطة' },
-      year: '2024',
-      image: '/images/award-3.jpg',
-    },
-  ],
+  // Hidden until real award titles, issuers and years are confirmed.
+  awards: [],
 
   press: [
     {
@@ -259,7 +261,8 @@ export const content: SiteContent = {
     },
   ],
 
-  developers: ['Emaar', 'Omniyat', 'Azizi', 'Sobha', 'Damac', 'Ellington'],
+  // Developers seen in his posts.
+  developers: ['BEYOND', 'Casagrand', 'Emaar', 'Azizi'],
 
   // Covers cropped from his Instagram grid. Swap in full-resolution covers and post links.
   reels: [
@@ -305,14 +308,19 @@ export const content: SiteContent = {
   todo: [
     'Name order: the offices flyer says "Zubair Akram", LinkedIn and Estate Magazine say "Akram Zubair"; Instagram shows "Realtor Zubayr"',
     'Arabic spelling of his name (currently أكرم زبير)',
-    'Agency name and RERA BRN',
-    'Email address and office location / map link',
-    'Languages spoken (currently English only)',
+    'Agency: shown as Rino Properties (he is tagged on @rino.properties); confirm',
+    'RERA BRN (hidden until provided)',
+    'Email address (hidden until provided)',
+    'Office location and map link (hidden until provided)',
+    'Languages spoken (hidden until provided)',
     'Stats for the hero strip (hidden until provided)',
-    'Projects: confirm BEYOND, Rashid Yachts & Marina and the Azizi launch (name, price, payment plan, handover); offices tower developer name',
-    'Awards: real titles, issuers and years',
-    'Estate Magazine article URL',
-    'Reels: links to the individual Instagram posts and full-resolution covers',
-    'High-resolution portraits (hero + about) and project photos in public/images/',
+    'Awards: titles, issuers and years (section hidden until provided)',
+    'Rashid Yachts & Marina: unit types, price, payment plan, handover, and his post link',
+    'Offices tower: developer name; Arancia Yards 2: starting price',
+    'Riviera: developer name (not stated in his reel)',
+    'Developer row: confirm BEYOND, Casagrand, Emaar, Azizi',
+    'Estate Magazine article URL (card links to his Instagram for now)',
+    'Reels: match each cover to its post (known posts: p/DetkrcitU1C, p/DeTvKxbjUIN, p/DeMcIhFjYf8, p/Dev4D9ltO4W, reel/DeGhFFfhP_Z) and use full-resolution covers',
+    'High-resolution portraits (hero + about) and project photos in public/images/ (projects use generated placeholders)',
   ],
 };

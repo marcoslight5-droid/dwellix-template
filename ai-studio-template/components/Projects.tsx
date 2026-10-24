@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { content } from '../data/content';
 import type { Project } from '../types';
 import { useLang } from '../lib/i18n';
-import { firstName } from '../lib/utils';
+import { projectCta } from '../lib/projectMessage';
 import { Icon } from './Icon';
 import { SectionHeading } from './SectionHeading';
 import { WhatsAppButton } from './WhatsAppButton';
@@ -14,7 +14,7 @@ const matches = (p: Project, f: Filter) => f === 'all' || (f === 'waterfront' ? 
 export function Projects({ onOpen }: { onOpen: (id: string) => void }) {
   const { s, t } = useLang();
   const [filter, setFilter] = useState<Filter>('all');
-  const { projects, agent } = content;
+  const { projects } = content;
 
   // Only offer filters that have at least one project.
   const filters = (['all', 'off-plan', 'ready', 'commercial', 'waterfront'] as Filter[]).filter((f) => projects.some((p) => matches(p, f)));
@@ -41,7 +41,7 @@ export function Projects({ onOpen }: { onOpen: (id: string) => void }) {
                 <span className="tag">{s.filters[p.category]}</span>
               </button>
               <div className="project-body">
-                <p className="project-dev">{p.developer}</p>
+                {p.developer && <p className="project-dev">{p.developer}</p>}
                 <h3 className="project-name">
                   <button type="button" onClick={() => onOpen(p.id)}>
                     {t(p.name)}
@@ -57,7 +57,7 @@ export function Projects({ onOpen }: { onOpen: (id: string) => void }) {
                   <WhatsAppButton
                     variant="small"
                     label={s.whatsapp}
-                    message={s.msgProject(firstName(t(agent.name)), t(p.name), t(p.location))}
+                    message={projectCta(s, t, p).message}
                   />
                 </div>
               </div>

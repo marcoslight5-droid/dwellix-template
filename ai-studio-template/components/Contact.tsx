@@ -20,11 +20,13 @@ export function Contact() {
             <span>{s.call}</span>
             <bdi className="muted">{agent.phone}</bdi>
           </a>
-          <a className="contact-row" href={`mailto:${agent.email}`}>
-            <Icon name="mail" />
-            <span>{s.email}</span>
-            <span className="muted ellipsis">{agent.email}</span>
-          </a>
+          {agent.email && (
+            <a className="contact-row" href={`mailto:${agent.email}`}>
+              <Icon name="mail" />
+              <span>{s.email}</span>
+              <span className="muted ellipsis">{agent.email}</span>
+            </a>
+          )}
           <a className="contact-row" href={agent.instagram.url} target="_blank" rel="noopener noreferrer">
             <Icon name="instagram" />
             <span>{s.instagram}</span>
@@ -37,11 +39,13 @@ export function Contact() {
               <span className="muted ellipsis">{agent.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
             </a>
           )}
-          <a className="contact-row" href={agent.mapUrl} target="_blank" rel="noopener noreferrer">
-            <Icon name="pin" />
-            <span>{s.office}</span>
-            <span className="muted">{t(agent.office)}</span>
-          </a>
+          {agent.office && (
+            <a className="contact-row" href={agent.mapUrl} target="_blank" rel="noopener noreferrer">
+              <Icon name="pin" />
+              <span>{s.office}</span>
+              <span className="muted">{t(agent.office)}</span>
+            </a>
+          )}
         </div>
       </div>
     </section>
@@ -55,10 +59,15 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <p>
-          © {new Date().getFullYear()} {t(agent.name)} · {t(agent.agency)} ·{' '}
-          <span className="nowrap">
-            {s.brn} <bdi>{agent.brn}</bdi>
-          </span>
+          © {new Date().getFullYear()} {t(agent.name)} · {t(agent.agency)}
+          {agent.brn && (
+            <>
+              {' · '}
+              <span className="nowrap">
+                {s.brn} <bdi>{agent.brn}</bdi>
+              </span>
+            </>
+          )}
         </p>
         <p className="fine">{s.disclaimer}</p>
         {siteConfig.preview && <p className="fine">{s.previewBy}</p>}

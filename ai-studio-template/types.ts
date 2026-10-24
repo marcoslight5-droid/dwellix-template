@@ -42,17 +42,20 @@ export interface Agent {
   /** Second portrait used in the About section (falls back to photo). */
   photoAlt?: string;
   agency: L;
-  /** RERA Broker Registration Number. */
+  /** RERA Broker Registration Number. Leave empty ('') to hide it until confirmed. */
   brn: string;
   /** E.164, e.g. +971501234567. Used for wa.me links. */
   whatsapp: string;
   phone: string;
-  email: string;
+  /** Optional: the email row is hidden when missing. */
+  email?: string;
   instagram: { handle: string; url: string };
   linkedin?: string;
+  /** Hidden when empty. */
   languages: string[];
-  office: L;
-  mapUrl: string;
+  /** Optional: the office row is hidden when missing. */
+  office?: L;
+  mapUrl?: string;
 }
 
 export interface Stat {
@@ -72,7 +75,8 @@ export interface Project {
   /** URL-safe id, used in #/project/<id>. */
   id: string;
   name: L;
-  developer: string;
+  /** Hidden when the developer isn't known. */
+  developer?: string;
   location: L;
   category: ProjectCategory;
   waterfront?: boolean;
@@ -87,6 +91,8 @@ export interface Project {
   gallery: string[];
   summary: L;
   highlights: L[];
+  /** The agent's own post about this project (shown as a link in the detail sheet). */
+  postUrl?: string;
 }
 
 export interface InvestReason {

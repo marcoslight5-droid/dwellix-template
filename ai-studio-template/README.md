@@ -2,7 +2,7 @@
 
 A premium, bilingual (English / Arabic) website template for Dubai real estate agents, built as a **React + TypeScript + Vite** app so it can be imported into **Google AI Studio** and redesigned with prompts. See [AI_STUDIO.md](./AI_STUDIO.md) for the import steps, the rules to give the AI, and example redesign prompts.
 
-The current content is a **pitch preview** for Akram Zubair ([@dubairealtorzubayr](https://www.instagram.com/dubairealtorzubayr/)). It is drafted from his public Instagram, LinkedIn and Estate Magazine feature; the Instagram and press images are low-resolution crops from his profile. Everything still unconfirmed is listed in `content.todo` in `data/content.ts`.
+The current content is a **pitch preview** for Akram Zubair ([@dubairealtorzubayr](https://www.instagram.com/dubairealtorzubayr/)). It is drafted from his public Instagram (each project links to his post about it), his LinkedIn URL and his Estate Magazine feature; the Instagram and press images are low-resolution crops from his profile. Everything still unconfirmed is listed in `content.todo` in `data/content.ts`.
 
 ## Who this template is for
 
@@ -33,6 +33,7 @@ npm run images     # regenerate the placeholder images in public/images/
 ## Personalising it for an agent
 
 1. **Text:** edit `data/content.ts`. Every visible string is an `{ en, ar }` pair. Interface labels and WhatsApp message templates are in `data/ui.ts`.
+   Anything not known yet can be left empty and is hidden on the page: `brn: ''`, no `email` / `office`, `languages: []`, `stats: []`, `awards: []`, and no `developer` on a project. Projects can link to the agent's own post with `postUrl`.
 2. **Photos:** drop the agent's photos into `public/images/`, either replacing the placeholder files (same names) or updating the paths in `content.ts`. Recommended sizes:
    - portrait: 900×1125 (4:5)
    - project photos: 1600×1200

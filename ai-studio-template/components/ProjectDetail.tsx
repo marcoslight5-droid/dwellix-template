@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { content } from '../data/content';
 import { useLang } from '../lib/i18n';
-import { firstName } from '../lib/utils';
+import { projectCta } from '../lib/projectMessage';
 import { Icon } from './Icon';
 import { WhatsAppButton } from './WhatsAppButton';
 
@@ -49,7 +49,7 @@ export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void
   };
 
   const facts: [string, string][] = [
-    [s.developer, project.developer],
+    ...(project.developer ? ([[s.developer, project.developer]] as [string, string][]) : []),
     [s.location, t(project.location)],
     [s.status, t(project.status)],
     [s.unitTypes, t(project.unitTypes)],
@@ -88,7 +88,7 @@ export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void
         </div>
 
         <div className="sheet-body">
-          <p className="eyebrow">{project.developer}</p>
+          {project.developer && <p className="eyebrow">{project.developer}</p>}
           <h2 id="sheet-title">{t(project.name)}</h2>
           <p className="sheet-summary">{t(project.summary)}</p>
 
@@ -111,11 +111,13 @@ export function ProjectDetail({ id, onClose }: { id: string; onClose: () => void
             ))}
           </ul>
 
-          <WhatsAppButton
-            className="btn-block"
-            label={s.requestBrochure}
-            message={s.msgProject(firstName(t(content.agent.name)), t(project.name), t(project.location))}
-          />
+          <WhatsAppButton className="btn-block" {...projectCta(s, t, project)} />
+          {project.postUrl && (
+            <a className="post-link" href={project.postUrl} target="_blank" rel="noopener noreferrer">
+              <Icon name="instagram" size={18} />
+              {s.viewPost}
+            </a>
+          )}
         </div>
       </div>
     </div>

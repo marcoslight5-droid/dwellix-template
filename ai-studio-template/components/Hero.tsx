@@ -30,9 +30,11 @@ export function Hero() {
           <img src={agent.photo} alt={t(agent.name)} width={900} height={1125} fetchPriority="high" />
           <figcaption>
             <span>{t(agent.agency)}</span>
-            <span className="nowrap">
-              {s.brn} <bdi>{agent.brn}</bdi>
-            </span>
+            {agent.brn && (
+              <span className="nowrap">
+                {s.brn} <bdi>{agent.brn}</bdi>
+              </span>
+            )}
           </figcaption>
         </figure>
       </div>

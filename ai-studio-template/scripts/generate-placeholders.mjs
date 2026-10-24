@@ -3,7 +3,8 @@
  * Replace each file with the agent's real photo, keeping the same file name,
  * or point data/content.ts at new names.
  *
- *   npm run images
+ *   npm run images             # only creates images that don't exist yet
+ *   npm run images -- --force  # regenerates every placeholder (overwrites real photos!)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -199,7 +200,11 @@ function expo(w, h, seed) {
   return svg(w, h, s);
 }
 
+const FORCE = process.argv.includes('--force');
+
 async function write(name, markup, width) {
+  // Never overwrite a real photo that was dropped in with a placeholder's name.
+  if (!FORCE && fs.existsSync(path.join(OUT, name))) return;
   await sharp(Buffer.from(markup)).resize({ width }).jpeg({ quality: 74, mozjpeg: true }).toFile(path.join(OUT, name));
   console.log(`  public/images/${name}`);
 }
@@ -213,15 +218,18 @@ await write('hero.jpg', svg(1920, 1200, skyline(1920, 1200, 7)), 1920);
 await write('og.jpg', svg(1200, 630, skyline(1200, 630, 9)), 1200);
 await write('portrait.jpg', portrait(...P, 1), P[0]);
 await write('portrait-2.jpg', portrait(...P, 2), P[0]);
-await write('project-beyond-1.jpg', waterfrontTowers(...L, 11, 'day'), L[0]);
-await write('project-beyond-2.jpg', waterfrontTowers(...L, 12, 'night'), L[0]);
-await write('project-beyond-3.jpg', interior(...L, 13, 'living'), L[0]);
+await write('project-arancia-1.jpg', midrise(...L, 11), L[0]);
+await write('project-arancia-2.jpg', interior(...L, 12, 'living'), L[0]);
+await write('project-arancia-3.jpg', interior(...L, 13, 'kitchen'), L[0]);
+await write('project-hermina-1.jpg', waterfrontTowers(...L, 14, 'day'), L[0]);
+await write('project-hermina-2.jpg', waterfrontTowers(...L, 15, 'night'), L[0]);
+await write('project-hermina-3.jpg', interior(...L, 16, 'living'), L[0]);
 await write('project-rashid-1.jpg', marina(...L, 21), L[0]);
 await write('project-rashid-2.jpg', marina(...L, 22), L[0]);
 await write('project-rashid-3.jpg', interior(...L, 23, 'living'), L[0]);
-await write('project-azizi-1.jpg', midrise(...L, 31), L[0]);
-await write('project-azizi-2.jpg', interior(...L, 32, 'kitchen'), L[0]);
-await write('project-azizi-3.jpg', interior(...L, 33, 'living'), L[0]);
+await write('project-riviera-1.jpg', interior(...L, 31, 'living'), L[0]);
+await write('project-riviera-2.jpg', interior(...L, 32, 'kitchen'), L[0]);
+await write('project-riviera-3.jpg', midrise(...L, 33), L[0]);
 await write('project-offices-1.jpg', offices(...L, 41), L[0]);
 await write('project-offices-2.jpg', offices(...L, 42), L[0]);
 await write('project-offices-3.jpg', interior(...L, 43, 'living'), L[0]);

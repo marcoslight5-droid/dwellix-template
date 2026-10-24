@@ -12,23 +12,27 @@ export function Credibility() {
       <div className="container">
         <SectionHeading id="cred-title" eyebrow={s.credibilityEyebrow} title={s.credibilityTitle} />
 
-        <h3 className="label">{s.awards}</h3>
-        <div className="awards">
-          {awards.map((a) => (
-            <figure key={a.title.en} className="award">
-              <img src={a.image} alt="" loading="lazy" decoding="async" width={800} height={1000} />
-              <figcaption>
-                <Icon name="award" size={18} />
-                <span>
-                  <strong>{t(a.title)}</strong>
-                  <span className="muted">
-                    {t(a.issuer)} · <bdi>{a.year}</bdi>
-                  </span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        {awards.length > 0 && (
+          <>
+            <h3 className="label">{s.awards}</h3>
+            <div className="awards">
+              {awards.map((a) => (
+                <figure key={a.title.en} className="award">
+                  <img src={a.image} alt="" loading="lazy" decoding="async" width={800} height={1000} />
+                  <figcaption>
+                    <Icon name="award" size={18} />
+                    <span>
+                      <strong>{t(a.title)}</strong>
+                      <span className="muted">
+                        {t(a.issuer)} · <bdi>{a.year}</bdi>
+                      </span>
+                    </span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </>
+        )}
 
         <div className="cred-split">
           <div>

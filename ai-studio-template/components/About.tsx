@@ -7,7 +7,7 @@ export function About() {
   return (
     <section className="section" id="about" aria-labelledby="about-title">
       <div className="container about">
-        <img className="about-photo" src={agent.photoAlt ?? agent.photo} alt={t(agent.name)} loading="lazy" decoding="async" width={900} height={1125} />
+        <img className="about-photo" src={agent.photo} alt={t(agent.name)} loading="lazy" decoding="async" width={320} height={320} />
         <div>
           <p className="eyebrow">{s.aboutEyebrow}</p>
           <h2 id="about-title">{t(agent.name)}</h2>

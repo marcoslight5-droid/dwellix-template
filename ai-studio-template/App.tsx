@@ -71,7 +71,7 @@ export default function App() {
       </a>
       <Header />
       <main>
-        <Hero />
+        <Hero onOpen={openProject} />
         <Specialties />
         <Projects onOpen={openProject} />
         <Invest />

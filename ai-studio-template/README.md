@@ -8,7 +8,7 @@ The current content is a **pitch preview** for Akram Zubair ([@dubairealtorzubay
 
 It's designed for an **off-plan and investment advisor**: an agent who sells developer launches (Emaar, Omniyat, Azizi…), waterfront and branded residences, and some commercial space. Their clients are mostly investors, including overseas buyers. So the site leads with:
 
-1. **Hero:** name, role, tagline, WhatsApp "Book a consultation", portrait with agency and RERA BRN, key stats
+1. **Hero:** round headshot with role, agency and RERA BRN, name, tagline, WhatsApp "Book a consultation", a featured-project card (`featuredProject` in `content.ts`), and a strip of verifiable highlights
 2. **Specialities:** off-plan launches, investor consultations, waterfront & branded living, commercial; developer row
 3. **Projects:** filterable cards (Off-plan / Ready / Commercial / Waterfront) that open a detail sheet (`#/project/<id>`) with a swipeable gallery, facts, highlights and a "Request brochure & payment plan" WhatsApp button
 4. **Investor relations:** why invest in Dubai, a rental-yield calculator, and a consultation form that sends a structured WhatsApp message
@@ -35,7 +35,7 @@ npm run images     # regenerate the placeholder images in public/images/
 1. **Text:** edit `data/content.ts`. Every visible string is an `{ en, ar }` pair. Interface labels and WhatsApp message templates are in `data/ui.ts`.
    Anything not known yet can be left empty and is hidden on the page: `brn: ''`, no `email` / `office`, `languages: []`, `stats: []`, `awards: []`, and no `developer` on a project. Projects can link to the agent's own post with `postUrl`.
 2. **Photos:** drop the agent's photos into `public/images/`, either replacing the placeholder files (same names) or updating the paths in `content.ts`. Recommended sizes:
-   - portrait: 900×1125 (4:5)
+   - headshot: square, at least 600×600 (shown round)
    - project photos: 1600×1200
    - reels: 720×1120
    - hero background: 1920×1200

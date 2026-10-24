@@ -216,8 +216,6 @@ const R = [720, 1120];
 console.log('Generating placeholder images…');
 await write('hero.jpg', svg(1920, 1200, skyline(1920, 1200, 7)), 1920);
 await write('og.jpg', svg(1200, 630, skyline(1200, 630, 9)), 1200);
-await write('portrait.jpg', portrait(...P, 1), P[0]);
-await write('portrait-2.jpg', portrait(...P, 2), P[0]);
 await write('project-arancia-1.jpg', midrise(...L, 11), L[0]);
 await write('project-arancia-2.jpg', interior(...L, 12, 'living'), L[0]);
 await write('project-arancia-3.jpg', interior(...L, 13, 'kitchen'), L[0]);

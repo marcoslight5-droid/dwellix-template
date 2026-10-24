@@ -38,9 +38,8 @@ export interface Agent {
   tagline: L;
   /** About section paragraphs. */
   bio: L[];
+  /** Square headshot, shown round (hero badge, About). */
   photo: string;
-  /** Second portrait used in the About section (falls back to photo). */
-  photoAlt?: string;
   agency: L;
   /** RERA Broker Registration Number. Leave empty ('') to hide it until confirmed. */
   brn: string;
@@ -145,7 +144,9 @@ export interface Faq {
 
 export interface SiteContent {
   agent: Agent;
-  /** Hero stat strip; leave empty to hide it until real numbers are confirmed. */
+  /** Project id shown as the large card in the hero. */
+  featuredProject: string;
+  /** Hero stat strip (only verifiable facts); empty hides it. */
   stats: Stat[];
   specialties: Specialty[];
   projects: Project[];

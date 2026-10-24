@@ -29,8 +29,8 @@ export const content: SiteContent = {
         ar: 'يحصل كل عميل على أرقام واضحة: خطط الدفع ورسوم الخدمات والعوائد الإيجارية الواقعية وإمكانات إعادة البيع، لتُبنى القرارات على الحقائق لا على الدعاية. كما أتولّى علاقات المستثمرين من خارج الدولة، فأتابع المعاينات والأوراق والتسليم عن بُعد.',
       },
     ],
-    photo: '/images/portrait.jpg',
-    photoAlt: '/images/portrait-2.jpg',
+    // His Instagram profile photo (low-res: replace with the original headshot when available).
+    photo: '/images/avatar.jpg',
     // Current agency unconfirmed (see todo): in Oct 2025 he posted as part of Marrfa
     // (@marrfahq); in Oct 2026 he is tagged on @rino.properties (rinoproperties.com).
     agency: { en: 'Rino Properties', ar: 'رينو للعقارات' },
@@ -45,8 +45,15 @@ export const content: SiteContent = {
     languages: [],
   },
 
-  // Hidden until real numbers are confirmed (years, deals closed, clients advised…).
-  stats: [],
+  featuredProject: 'grade-a-offices-szr',
+
+  // Only facts taken from his posts. No invented years, deal counts or client numbers.
+  stats: [
+    { value: '5', label: { en: 'Featured projects', ar: 'مشاريع مختارة' } },
+    { value: '4', label: { en: 'Leading developers', ar: 'من كبار المطورين' } },
+    { value: '2025', label: { en: 'First-quarter award, Marrfa', ar: 'جائزة الربع الأول، مارفا' } },
+    { value: '10-yr', label: { en: 'Golden Visa guidance', ar: 'إرشاد حول الإقامة الذهبية' } },
+  ],
 
   specialties: [
     {
@@ -328,23 +335,18 @@ export const content: SiteContent = {
     },
   ],
 
+  // To confirm with Akram before the site goes live. Everything here is either hidden
+  // on the page or shown with safe wording ("price on request", placeholder photos).
   todo: [
-    'Name order: the offices flyer says "Zubair Akram", LinkedIn and Estate Magazine say "Akram Zubair"; Instagram shows "Realtor Zubayr"',
-    'Arabic spelling of his name (currently أكرم زبير)',
-    'Current agency: shown as Rino Properties (tagged Oct 2026); he was at Marrfa in Oct 2025. Confirm',
-    'RERA BRN (hidden until provided)',
-    'Email address (hidden until provided)',
-    'Office location and map link (hidden until provided)',
-    'Languages spoken (hidden until provided)',
-    'Stats for the hero strip (hidden until provided)',
-    'Awards: exact title of the Marrfa first-quarter award (2025), a photo of it, and any other awards',
-    'Rashid Yachts & Marina: price and payment plan (not in his posts); project photos',
-    'Events: Ghaf Woods Open House details (place, what it was about) and event photos',
-    'Offices tower: developer name; Arancia Yards 2: starting price',
-    'Riviera: developer name (not stated in his reel)',
-    'Developer row: confirm BEYOND, Casagrand, Emaar, Azizi',
-    'Estate Magazine article URL (card links to his Instagram for now)',
-    'Reels: match each cover to its post (known posts: p/DetkrcitU1C, p/DeTvKxbjUIN, p/DeMcIhFjYf8, p/Dev4D9ltO4W, reel/DeGhFFfhP_Z) and use full-resolution covers',
-    'High-resolution portraits (hero + about) and project photos in public/images/ (projects use generated placeholders)',
+    'Name: shown as "Akram Zubair" (LinkedIn + Estate Magazine); the offices flyer says "Zubair Akram". Confirm, plus the Arabic spelling (أكرم زبير)',
+    'Current agency: shown as Rino Properties (tagged Oct 2026; he was at Marrfa in Oct 2025)',
+    'RERA BRN: required on property ads in Dubai; hidden until provided',
+    'Optional extras (hidden until provided): email, office location, languages',
+    'Prices: Arancia Yards 2 and Rashid Yachts & Marina (shown as "price on request")',
+    'Developers of the offices tower and the Riviera unit (not named in his posts)',
+    'Exact title and a photo of the Marrfa first-quarter award (2025)',
+    'Estate Magazine article URL (not findable online; the card links to his Instagram)',
+    'Photos: original headshot (avatar is cropped from his Instagram profile picture), project renders, event photos',
+    'Reels: link each cover to its post',
   ],
 };

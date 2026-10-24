@@ -4,9 +4,10 @@ import { firstName } from '../lib/utils';
 import { Icon } from './Icon';
 import { WhatsAppButton } from './WhatsAppButton';
 
-export function Hero() {
+export function Hero({ onOpen }: { onOpen: (id: string) => void }) {
   const { s, t } = useLang();
   const { agent, stats } = content;
+  const featured = content.projects.find((p) => p.id === content.featuredProject) ?? content.projects[0];
 
   return (
     <section className="hero" id="top">
@@ -15,7 +16,23 @@ export function Hero() {
       </div>
       <div className="container hero-inner">
         <div className="hero-copy">
-          <p className="eyebrow">{t(agent.role)}</p>
+          <div className="agent-badge">
+            <img src={agent.photo} alt="" width={64} height={64} fetchPriority="high" />
+            <span>
+              <span className="agent-badge-role">{t(agent.role)}</span>
+              <span className="muted">
+                {t(agent.agency)}
+                {agent.brn && (
+                  <>
+                    {' · '}
+                    <span className="nowrap">
+                      {s.brn} <bdi>{agent.brn}</bdi>
+                    </span>
+                  </>
+                )}
+              </span>
+            </span>
+          </div>
           <h1 className="hero-title">{t(agent.name)}</h1>
           <p className="hero-tagline">{t(agent.tagline)}</p>
           <div className="hero-actions">
@@ -26,17 +43,23 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <figure className="hero-portrait">
-          <img src={agent.photo} alt={t(agent.name)} width={900} height={1125} fetchPriority="high" />
-          <figcaption>
-            <span>{t(agent.agency)}</span>
-            {agent.brn && (
-              <span className="nowrap">
-                {s.brn} <bdi>{agent.brn}</bdi>
+        {featured && (
+          <button type="button" className="hero-feature" onClick={() => onOpen(featured.id)}>
+            <img src={featured.image} alt="" width={1200} height={900} fetchPriority="high" />
+            <span className="hero-feature-body">
+              <span className="eyebrow">{s.featured}</span>
+              <span className="hero-feature-name">{t(featured.name)}</span>
+              <span className="hero-feature-meta">
+                {t(featured.price)}
+                {featured.paymentPlan && <> · {t(featured.paymentPlan)}</>}
               </span>
-            )}
-          </figcaption>
-        </figure>
+              <span className="link">
+                {s.viewProject}
+                <Icon name="arrow" size={16} />
+              </span>
+            </span>
+          </button>
+        )}
       </div>
       {stats.length > 0 && (
         <div className="container">

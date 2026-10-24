@@ -1,0 +1,15 @@
+# Cloudflare Worker that serves https://<slug>.dwellix.site from the Pages
+# branch deployment https://<slug>.dwellix-previews.pages.dev.
+# Deployed once by `npm run setup:cloudflare` (or `npx wrangler deploy --config worker/wrangler.toml`).
+name = "dwellix-preview-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+workers_dev = false
+
+routes = [
+  { pattern = "*.dwellix.site/*", zone_name = "dwellix.site" }
+]
+
+[vars]
+ROOT_DOMAIN = "dwellix.site"
+PAGES_PROJECT = "dwellix-previews"

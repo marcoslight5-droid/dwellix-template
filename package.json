@@ -1,0 +1,45 @@
+{
+  "name": "dwellix-template",
+  "version": "1.0.0",
+  "description": "Dwellix: personalised real estate agent preview sites for UAE agents, generated from one JSON file.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "serve": "astro preview",
+    "check": "astro check",
+    "validate": "tsx scripts/validate.ts",
+    "preview": "tsx scripts/preview.ts",
+    "setup:cloudflare": "tsx scripts/setup-cloudflare.ts",
+    "generate:samples": "tsx scripts/generate-sample-images.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoslight5-droid/dwellix-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcoslight5-droid/dwellix-template/issues"
+  },
+  "homepage": "https://github.com/marcoslight5-droid/dwellix-template#readme",
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/ibm-plex-sans-arabic": "^5.3.0",
+    "@fontsource/noto-naskh-arabic": "^5.3.0",
+    "astro": "^5.18.2",
+    "sharp": "^0.35.5",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/node": "^26.6.5",
+    "dotenv": "^18.0.9",
+    "playwright": "1.63.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.152.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

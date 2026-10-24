@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+import type { Listing } from '../lib/schema';
+import { type Lang, ui, whatsappLink, whatsappMessage, whatsappGeneral } from '../lib/i18n';
+import { agent } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  listing?: Listing;
+  label?: string;
+  variant?: 'solid' | 'outline' | 'compact';
+  class?: string;
+}
+const { lang, listing, label, variant = 'solid', class: className } = Astro.props;
+const text = listing ? whatsappMessage(agent, listing, lang) : whatsappGeneral(agent, lang);
+const href = whatsappLink(agent, text);
+---
+
+<a
+  class:list={['btn', `btn-${variant}`, className]}
+  href={href}
+  target="_blank"
+  rel="noopener"
+  data-wa
+>
+  <Icon name="whatsapp" size={variant === 'compact' ? 18 : 20} />
+  <span>{label ?? ui(lang).whatsappCta}</span>
+</a>

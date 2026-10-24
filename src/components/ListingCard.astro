@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import type { Listing } from '../lib/schema';
+import { type Lang, ui, t, formatPrice, formatNumber, bedsLabel, listingPath } from '../lib/i18n';
+import { listingImages } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  listing: Listing;
+  index: number;
+}
+const { lang, listing, index } = Astro.props;
+const s = ui(lang);
+const [cover] = await listingImages(listing.id);
+const href = listingPath(lang, listing.id);
+const title = t(listing.title, lang);
+---
+
+<article
+  class="card"
+  data-listing
+  data-area={listing.area.en}
+  data-type={listing.type}
+  data-purpose={listing.purpose}
+  data-beds={listing.beds}
+>
+  <div class="card-media">
+    <Image
+      src={cover}
+      alt={`${title}, ${t(listing.area, lang)}`}
+      widths={[400, 640, 900]}
+      sizes="(min-width: 1100px) 340px, (min-width: 700px) 45vw, calc(100vw - 40px)"
+      loading={index === 0 ? 'eager' : 'lazy'}
+      decoding="async"
+      quality={70}
+    />
+    <span class="badge">{listing.purpose === 'sale' ? s.forSale : s.forRent}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-price"><bdi>{formatPrice(listing, lang)}</bdi></p>
+    <h3 class="card-title">
+      <a href={href} class="stretched">{title}</a>
+    </h3>
+    <p class="card-area"><Icon name="pin" size={15} />{t(listing.area, lang)} · {s.types[listing.type]}</p>
+    <ul class="specs" aria-label={s.specs}>
+      {listing.type !== 'office' && <li><Icon name="bed" size={16} />{bedsLabel(listing.beds, lang)}</li>}
+      <li><Icon name="bath" size={16} />{s.baths(listing.baths)}</li>
+      <li><Icon name="size" size={16} /><bdi>{s.sqft(formatNumber(listing.sqft))}</bdi></li>
+    </ul>
+    {listing.permitNumber && <p class="permit">{s.permit} <bdi>{listing.permitNumber}</bdi></p>}
+    <div class="card-actions">
+      <WhatsAppButton lang={lang} listing={listing} label={s.whatsapp} variant="compact" />
+      <span class="card-more" aria-hidden="true">{s.details}<Icon name="arrow" size={16} /></span>
+    </div>
+  </div>
+</article>

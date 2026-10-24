@@ -1,0 +1,160 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import WhatsAppButton from '../../../components/WhatsAppButton.astro';
+import Icon from '../../../components/Icon.astro';
+import { LANGS, type Lang, ui, t, formatPrice, formatNumber, bedsLabel, homePath } from '../../../lib/i18n';
+import { agent, listings, listingImages, agentPhoto } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) => listings.map((l) => ({ params: { lang, id: l.id } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const listing = listings.find((l) => l.id === Astro.params.id)!;
+const s = ui(lang);
+const photos = await listingImages(listing.id);
+const portrait = await agentPhoto();
+const title = t(listing.title, lang);
+const area = t(listing.area, lang);
+const price = formatPrice(listing, lang);
+const name = t(agent.name, lang);
+
+const specs: [string, string][] = [
+  [s.price, price],
+  [s.type, s.types[listing.type]],
+  [s.purpose, listing.purpose === 'sale' ? s.forSale : s.forRent],
+  ...(listing.type !== 'office' ? ([[s.bedrooms, bedsLabel(listing.beds, lang)]] as [string, string][]) : []),
+  [s.bathrooms, formatNumber(listing.baths)],
+  [s.size, s.sqft(formatNumber(listing.sqft))],
+  [s.community, area],
+  ...(listing.permitNumber ? ([[s.permitLong, listing.permitNumber]] as [string, string][]) : []),
+  [s.reference, listing.id],
+];
+const description = `${title}, ${area}. ${price}. ${t(listing.description, lang).slice(0, 110).trim()}…`;
+---
+
+<Base lang={lang} path={`listings/${listing.id}/`} title={`${title}, ${area} · ${price} · ${name}`} description={description} ogImage={photos[0]}>
+  <div class="wrap detail">
+    <a class="back" href={`${homePath(lang)}#listings`}><Icon name="arrow" size={16} class="icon-back" />{s.back}</a>
+
+    <div class="gallery" data-gallery>
+      <div class="gallery-track" data-track tabindex="0" role="region" aria-roledescription="carousel" aria-label={title}>
+        {
+          photos.map((photo, i) => (
+            <figure class="gallery-slide" data-slide aria-label={s.photo(i + 1, photos.length)}>
+              <Image
+                src={photo}
+                alt={`${title}, ${area} (${i + 1}/${photos.length})`}
+                widths={[480, 800, 1200, 1600]}
+                sizes="(min-width: 1100px) 1040px, 100vw"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchpriority={i === 0 ? 'high' : 'auto'}
+                quality={72}
+              />
+            </figure>
+          ))
+        }
+      </div>
+      {
+        photos.length > 1 && (
+          <>
+            <button class="gallery-nav prev" type="button" data-prev aria-label={s.prev}><Icon name="chevron" size={20} class="icon-back" /></button>
+            <button class="gallery-nav next" type="button" data-next aria-label={s.next}><Icon name="chevron" size={20} /></button>
+            <div class="gallery-dots" aria-hidden="true">
+              {photos.map((_, i) => <span class:list={['dot', { active: i === 0 }]} data-dot />)}
+            </div>
+            <p class="gallery-count" aria-live="polite"><bdi data-count>1 / {photos.length}</bdi></p>
+          </>
+        )
+      }
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <p class="eyebrow"><span class="badge badge-inline">{listing.purpose === 'sale' ? s.forSale : s.forRent}</span> {s.types[listing.type]}</p>
+        <h1 class="detail-title">{title}</h1>
+        <p class="card-area"><Icon name="pin" size={16} />{area}</p>
+        <p class="detail-price"><bdi>{price}</bdi></p>
+
+        <ul class="specs specs-lg">
+          {listing.type !== 'office' && <li><Icon name="bed" size={18} />{bedsLabel(listing.beds, lang)}</li>}
+          <li><Icon name="bath" size={18} />{s.baths(listing.baths)}</li>
+          <li><Icon name="size" size={18} /><bdi>{s.sqft(formatNumber(listing.sqft))}</bdi></li>
+        </ul>
+
+        <h2 class="h3">{s.description}</h2>
+        <p class="prose">{t(listing.description, lang)}</p>
+
+        <h2 class="h3">{s.specs}</h2>
+        <dl class="spec-table">
+          {
+            specs.map(([k, v]) => (
+              <div>
+                <dt>{k}</dt>
+                <dd><bdi>{v}</bdi></dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+
+      <aside class="agent-card" aria-label={s.listedBy}>
+        <div class="agent-row">
+          <Image src={portrait} alt={name} width={112} height={140} quality={70} class="agent-thumb" />
+          <div>
+            <p class="muted small">{s.listedBy}</p>
+            <p class="agent-name">{name}</p>
+            <p class="muted small">{t(agent.agency, lang)} · <span class="nowrap">{s.brn} <bdi>{agent.brn}</bdi></span></p>
+          </div>
+        </div>
+        {listing.permitNumber && <p class="permit"><Icon name="permit" size={16} />{s.permitLong} <bdi>{listing.permitNumber}</bdi></p>}
+        <WhatsAppButton lang={lang} listing={listing} class="btn-block" />
+        <a class="btn btn-outline btn-block" href={`tel:${agent.whatsapp}`}><Icon name="phone" size={18} /><span>{s.call}</span></a>
+      </aside>
+    </div>
+  </div>
+
+  <div class="sticky-cta">
+    <div class="sticky-price"><bdi>{price}</bdi></div>
+    <WhatsAppButton lang={lang} listing={listing} label={s.whatsapp} variant="compact" />
+  </div>
+</Base>
+
+<script>
+  for (const gallery of document.querySelectorAll<HTMLElement>('[data-gallery]')) {
+    const track = gallery.querySelector<HTMLElement>('[data-track]')!;
+    const slides = [...gallery.querySelectorAll<HTMLElement>('[data-slide]')];
+    const dots = [...gallery.querySelectorAll<HTMLElement>('[data-dot]')];
+    const count = gallery.querySelector<HTMLElement>('[data-count]');
+    let current = 0;
+
+    // Offsets relative to the first slide are negative in RTL, matching RTL scrollLeft, so this works both ways.
+    const go = (i: number) => {
+      const next = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[next].offsetLeft - slides[0].offsetLeft, behavior: 'smooth' });
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            current = slides.indexOf(e.target as HTMLElement);
+            dots.forEach((d, j) => d.classList.toggle('active', j === current));
+            if (count) count.textContent = `${current + 1} / ${slides.length}`;
+          }
+        }
+      },
+      { root: track, threshold: 0.6 },
+    );
+    slides.forEach((s) => io.observe(s));
+
+    gallery.querySelector('[data-prev]')?.addEventListener('click', () => go(current - 1));
+    gallery.querySelector('[data-next]')?.addEventListener('click', () => go(current + 1));
+    track.addEventListener('keydown', (e) => {
+      const rtl = document.dir === 'rtl';
+      if (e.key === 'ArrowRight') go(current + (rtl ? -1 : 1));
+      if (e.key === 'ArrowLeft') go(current + (rtl ? 1 : -1));
+    });
+  }
+</script>

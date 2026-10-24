@@ -1,0 +1,104 @@
+{
+  "agent": {
+    "name": { "en": "Layla Haddad", "ar": "ليلى حداد" },
+    "photo": "sample/agent.jpg",
+    "agency": { "en": "Harbour & Dune Properties", "ar": "هاربر آند ديون العقارية" },
+    "brn": "00000",
+    "whatsapp": "+971500000000",
+    "email": "layla@example.com",
+    "focusArea": { "en": "Dubai Marina & Palm Jumeirah", "ar": "دبي مارينا ونخلة جميرا" },
+    "languages": ["English", "العربية", "Français"],
+    "bio": {
+      "en": "This is a fictional sample profile. Layla has spent nine years helping families and investors buy, sell and rent along Dubai's waterfront, from Marina towers to beachfront villas on the Palm. She is known for straight answers on pricing, quick viewings and seeing every deal through to the transfer at the DLD trustee office.",
+      "ar": "هذا ملف تعريفي تجريبي لشخصية خيالية. أمضت ليلى تسع سنوات في مساعدة العائلات والمستثمرين على شراء العقارات وبيعها واستئجارها على واجهة دبي البحرية، من أبراج المارينا إلى الفلل المطلة على الشاطئ في النخلة. تُعرف بإجاباتها الواضحة حول الأسعار، وسرعة ترتيب المعاينات، ومتابعة كل صفقة حتى إتمام نقل الملكية لدى مكتب أمين التسجيل التابع لدائرة الأراضي والأملاك."
+    }
+  },
+  "listings": [
+    {
+      "id": "marina-2br-sea-view",
+      "title": { "en": "Sea-view 2 bedroom apartment", "ar": "شقة بغرفتي نوم بإطلالة على البحر" },
+      "type": "apartment",
+      "purpose": "sale",
+      "priceAED": 2450000,
+      "beds": 2,
+      "baths": 3,
+      "area": { "en": "Dubai Marina", "ar": "دبي مارينا" },
+      "sqft": 1320,
+      "photos": ["sample/marina-1.jpg", "sample/marina-2.jpg", "sample/marina-3.jpg", "sample/marina-4.jpg"],
+      "description": {
+        "en": "A bright corner unit on a high floor with full-height windows facing the marina and the sea. Open-plan living and dining, a closed kitchen with built-in appliances, and a master suite with a walk-in wardrobe. The building has a pool, gym and 24-hour concierge, and the tram and metro are a five-minute walk away. Vacant on transfer.",
+        "ar": "وحدة زاوية مشرقة في طابق مرتفع بنوافذ ممتدة من الأرض حتى السقف تطل على المارينا والبحر. صالة معيشة وطعام مفتوحة، ومطبخ مغلق مزوّد بأجهزة مدمجة، وجناح رئيسي مع غرفة ملابس. يضم المبنى مسبحاً وصالة رياضية وخدمة استقبال على مدار الساعة، ومحطتا الترام والمترو على بُعد خمس دقائق سيراً. شاغرة عند نقل الملكية."
+      },
+      "permitNumber": "7100000001"
+    },
+    {
+      "id": "downtown-1br-boulevard",
+      "title": { "en": "1 bedroom apartment on the Boulevard", "ar": "شقة بغرفة نوم واحدة على البوليفارد" },
+      "type": "apartment",
+      "purpose": "rent",
+      "priceAED": 135000,
+      "rentPeriod": "yearly",
+      "beds": 1,
+      "baths": 2,
+      "area": { "en": "Downtown Dubai", "ar": "وسط مدينة دبي" },
+      "sqft": 860,
+      "photos": ["sample/downtown-1.jpg", "sample/downtown-2.jpg", "sample/downtown-3.jpg"],
+      "description": {
+        "en": "Fully furnished one bedroom with a balcony and partial views of the tower. Walking distance to Dubai Mall and the metro. Chiller included, one covered parking space, and flexible payment in up to four cheques.",
+        "ar": "شقة مفروشة بالكامل بغرفة نوم واحدة مع شرفة وإطلالة جزئية على البرج. على مسافة قريبة سيراً من دبي مول والمترو. رسوم التبريد مشمولة، مع موقف سيارة مغطى، وإمكانية الدفع على أربع دفعات."
+      },
+      "permitNumber": "7100000002"
+    },
+    {
+      "id": "jvc-studio-park-view",
+      "title": { "en": "Studio with park view", "ar": "استوديو بإطلالة على الحديقة" },
+      "type": "apartment",
+      "purpose": "rent",
+      "priceAED": 52000,
+      "rentPeriod": "yearly",
+      "beds": 0,
+      "baths": 1,
+      "area": { "en": "Jumeirah Village Circle", "ar": "قرية جميرا الدائرية" },
+      "sqft": 420,
+      "photos": ["sample/jvc-1.jpg", "sample/jvc-2.jpg", "sample/jvc-3.jpg"],
+      "description": {
+        "en": "A well-planned studio overlooking one of JVC's community parks. Fitted kitchen, built-in wardrobes and a balcony. Pool and gym in the building, with shops and cafés downstairs. Available now.",
+        "ar": "استوديو بتصميم عملي يطل على إحدى حدائق قرية جميرا الدائرية. مطبخ مجهّز وخزائن مدمجة وشرفة. مسبح وصالة رياضية في المبنى، مع متاجر ومقاهٍ في الطابق الأرضي. متاح الآن."
+      },
+      "permitNumber": "7100000003"
+    },
+    {
+      "id": "palm-5br-beach-villa",
+      "title": { "en": "5 bedroom beachfront villa", "ar": "فيلا بخمس غرف نوم على الشاطئ" },
+      "type": "villa",
+      "purpose": "sale",
+      "priceAED": 32500000,
+      "beds": 5,
+      "baths": 6,
+      "area": { "en": "Palm Jumeirah", "ar": "نخلة جميرا" },
+      "sqft": 7200,
+      "photos": ["sample/palm-1.jpg", "sample/palm-2.jpg", "sample/palm-3.jpg", "sample/palm-4.jpg"],
+      "description": {
+        "en": "An upgraded signature villa on the fronds with a private beach, a heated pool and views back to the Marina skyline. Five en-suite bedrooms, a family room, a show kitchen plus service kitchen, maid's room and a double garage. Viewings by appointment.",
+        "ar": "فيلا مميزة مُحدّثة على سعف النخلة مع شاطئ خاص ومسبح مُدفأ وإطلالة على أفق المارينا. خمس غرف نوم بحمّامات خاصة، وغرفة عائلية، ومطبخ رئيسي إضافة إلى مطبخ للخدمة، وغرفة للخادمة، ومرآب يتسع لسيارتين. المعاينة بموعد مسبق."
+      },
+      "permitNumber": "7100000004"
+    },
+    {
+      "id": "business-bay-penthouse",
+      "title": { "en": "4 bedroom canal-view penthouse", "ar": "بنتهاوس بأربع غرف نوم مطل على القناة" },
+      "type": "penthouse",
+      "purpose": "sale",
+      "priceAED": 9800000,
+      "beds": 4,
+      "baths": 5,
+      "area": { "en": "Business Bay", "ar": "الخليج التجاري" },
+      "sqft": 4150,
+      "photos": ["sample/bay-1.jpg", "sample/bay-2.jpg", "sample/bay-3.jpg", "sample/bay-4.jpg"],
+      "description": {
+        "en": "A duplex penthouse with a wraparound terrace over the Dubai Water Canal and evening views of the Downtown skyline. Double-height living room, four bedrooms with en-suites, a private plunge pool and three parking spaces.",
+        "ar": "بنتهاوس من طابقين مع تراس محيط يطل على قناة دبي المائية وإطلالات مسائية على أفق وسط المدينة. صالة معيشة بارتفاع مزدوج، وأربع غرف نوم بحمّامات خاصة، ومسبح خاص صغير، وثلاثة مواقف للسيارات."
+      }
+    }
+  ]
+}

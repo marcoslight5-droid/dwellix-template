@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import Icon from '../../components/Icon.astro';
+import { LANGS, type Lang, ui, t } from '../../lib/i18n';
+import { LISTING_TYPES } from '../../lib/schema';
+import { agent, listings, agentPhoto } from '../../lib/site';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const s = ui(lang);
+const name = t(agent.name, lang);
+const photo = await agentPhoto();
+
+// Filter options only list values that actually exist in the listings.
+const areas = [...new Map(listings.map((l) => [l.area.en, t(l.area, lang)])).entries()];
+const types = LISTING_TYPES.filter((type) => listings.some((l) => l.type === type));
+const purposes = (['sale', 'rent'] as const).filter((p) => listings.some((l) => l.purpose === p));
+const maxBeds = Math.max(...listings.map((l) => l.beds));
+const bedOptions = [1, 2, 3, 4, 5].filter((n) => n <= maxBeds);
+const tel = `tel:${agent.whatsapp}`;
+---
+
+<Base
+  lang={lang}
+  path=""
+  title={s.homeTitle(name, t(agent.focusArea, lang))}
+  description={s.homeDescription(name, t(agent.agency, lang), t(agent.focusArea, lang))}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-photo">
+        <Image
+          src={photo}
+          alt={name}
+          widths={[320, 480, 720, 960]}
+          sizes="(min-width: 900px) 420px, 46vw"
+          loading="eager"
+          fetchpriority="high"
+          quality={75}
+        />
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">{t(agent.focusArea, lang)}</p>
+        <h1 class="hero-name">{name}</h1>
+        <p class="hero-meta">
+          <span>{t(agent.agency, lang)}</span>
+          <span class="dot" aria-hidden="true">·</span>
+          <span class="nowrap">{s.brn} <bdi>{agent.brn}</bdi></span>
+        </p>
+      </div>
+      <div class="hero-actions">
+        <WhatsAppButton lang={lang} />
+        <a class="btn btn-ghost" href="#listings">{s.viewListings}<Icon name="arrow" size={18} /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="listings" aria-labelledby="listings-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="listings-title">{s.listingsTitle}</h2>
+        <p class="lead">{s.listingsLead}</p>
+      </div>
+
+      <form class="filters" data-filters aria-label={s.findTitle}>
+        <label>
+          <span>{s.area}</span>
+          <select name="area">
+            <option value="">{s.allAreas}</option>
+            {areas.map(([value, label]) => <option value={value}>{label}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>{s.type}</span>
+          <select name="type">
+            <option value="">{s.allTypes}</option>
+            {types.map((type) => <option value={type}>{s.types[type]}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>{s.purpose}</span>
+          <select name="purpose">
+            <option value="">{s.anyPurpose}</option>
+            {purposes.map((p) => <option value={p}>{p === 'sale' ? s.forSale : s.forRent}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>{s.minBeds}</span>
+          <select name="beds">
+            <option value="">{s.anyBeds}</option>
+            {bedOptions.map((n) => <option value={n}>{s.bedsPlus(n)}</option>)}
+          </select>
+        </label>
+        <div class="filters-foot">
+          <p class="results" aria-live="polite" data-results data-one={s.results(1)} data-two={s.results(2)} data-many={s.results(99)}>
+            {s.results(listings.length)}
+          </p>
+          <button type="reset" class="link-btn">{s.reset}</button>
+        </div>
+      </form>
+
+      <div class="grid">
+        {listings.map((listing, index) => <ListingCard lang={lang} listing={listing} index={index} />)}
+      </div>
+      <p class="empty" data-empty hidden>{s.noResults}</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <h2 id="about-title">{s.aboutTitle}</h2>
+      <div class="about-body">
+        <p class="bio">{t(agent.bio, lang)}</p>
+        <dl class="facts">
+          <div>
+            <dt>{s.focus}</dt>
+            <dd>{t(agent.focusArea, lang)}</dd>
+          </div>
+          <div>
+            <dt>{s.languages}</dt>
+            <dd>
+              <ul class="chips">{agent.languages.map((l) => <li>{l}</li>)}</ul>
+            </dd>
+          </div>
+          <div>
+            <dt>{s.brnLong}</dt>
+            <dd><bdi>{agent.brn}</bdi></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact">
+      <h2 id="contact-title">{s.contactTitle}</h2>
+      <p class="lead">{s.contactLead}</p>
+      <div class="contact-actions">
+        <WhatsAppButton lang={lang} />
+        <a class="btn btn-outline" href={tel}><Icon name="phone" size={18} /><span>{s.call}</span> <bdi class="muted">{agent.whatsapp}</bdi></a>
+        {
+          agent.email && (
+            <a class="btn btn-outline" href={`mailto:${agent.email}`}>
+              <Icon name="mail" size={18} />
+              <span>{agent.email}</span>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-listing]')];
+  const results = document.querySelector<HTMLElement>('[data-results]');
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+
+  function apply() {
+    if (!form) return;
+    const f = new FormData(form);
+    const area = f.get('area');
+    const type = f.get('type');
+    const purpose = f.get('purpose');
+    const beds = Number(f.get('beds') || 0);
+    let shown = 0;
+    for (const card of cards) {
+      const d = card.dataset;
+      const match =
+        (!area || d.area === area) &&
+        (!type || d.type === type) &&
+        (!purpose || d.purpose === purpose) &&
+        Number(d.beds) >= beds;
+      card.hidden = !match;
+      if (match) shown++;
+    }
+    if (results) {
+      const r = results.dataset;
+      results.textContent = shown === 1 ? r.one! : shown === 2 ? r.two! : r.many!.replace('99', String(shown));
+    }
+    if (empty) empty.hidden = shown > 0;
+  }
+
+  form?.addEventListener('change', apply);
+  form?.addEventListener('reset', () => setTimeout(apply));
+  form?.addEventListener('submit', (e) => e.preventDefault());
+  apply();
+</script>

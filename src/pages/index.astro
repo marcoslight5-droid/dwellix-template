@@ -1,0 +1,18 @@
+---
+import { PREVIEW } from '../lib/site';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=/en/" />
+    <link rel="canonical" href={new URL('/en/', Astro.site).href} />
+    {PREVIEW && <meta name="robots" content="noindex, nofollow" />}
+    <script is:inline>location.replace('/en/' + location.hash);</script>
+  </head>
+  <body>
+    <a href="/en/">Continue to the site</a>
+  </body>
+</html>

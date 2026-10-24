@@ -9,3 +9,4 @@ worker/.wrangler/
 !.env.example
 .DS_Store
 *.log
+akram-zubair-site.zip

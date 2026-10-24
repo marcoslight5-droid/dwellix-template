@@ -194,7 +194,7 @@ function expo(w, h, seed) {
   s += `<rect width="${w}" height="${h}" fill="url(#sky)"/>`;
   for (let i = 0; i < 14; i++) s += `<circle cx="${r() * w}" cy="${r() * h * 0.4}" r="${20 + r() * 60}" fill="url(#sun)" opacity="0.35"/>`;
   s += `<rect x="${w * 0.15}" y="${h * 0.35}" width="${w * 0.7}" height="${h * 0.35}" fill="#1d1813" stroke="#c8a96a" stroke-width="3"/>`;
-  s += `<text x="${w / 2}" y="${h * 0.55}" text-anchor="middle" font-family="Georgia, serif" font-size="${w * 0.07}" fill="#e6cf9c" letter-spacing="6">${seed % 2 ? 'OPEN HOUSE' : 'PROPERTY EXPO'}</text>`;
+  s += `<text x="${w / 2}" y="${h * 0.55}" text-anchor="middle" font-family="Georgia, serif" font-size="${w * 0.07}" fill="#e6cf9c" letter-spacing="6">${seed % 2 ? 'OPEN HOUSE' : 'ROADSHOW'}</text>`;
   s += `<rect y="${h * 0.8}" width="${w}" height="${h * 0.2}" fill="#0b0907"/>`;
   for (let i = 0; i < 18; i++) s += `<ellipse cx="${r() * w}" cy="${h * 0.86 + r() * h * 0.08}" rx="${w * 0.02}" ry="${h * 0.06}" fill="#000" opacity="0.7"/>`;
   return svg(w, h, s);

@@ -1155,6 +1155,14 @@ p {
   color: var(--color-text-muted);
 }
 
+a.link:hover {
+  color: var(--color-accent);
+}
+
+figcaption .link {
+  margin-block-start: 6px;
+}
+
 .press:hover .link {
   color: var(--color-accent);
 }

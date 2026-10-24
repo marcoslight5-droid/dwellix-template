@@ -31,7 +31,8 @@ export const content: SiteContent = {
     ],
     photo: '/images/portrait.jpg',
     photoAlt: '/images/portrait-2.jpg',
-    // He is tagged on @rino.properties (rinoproperties.com). Unconfirmed: see todo.
+    // Current agency unconfirmed (see todo): in Oct 2025 he posted as part of Marrfa
+    // (@marrfahq); in Oct 2026 he is tagged on @rino.properties (rinoproperties.com).
     agency: { en: 'Rino Properties', ar: 'رينو للعقارات' },
     // RERA BRN not found yet; the BRN is hidden on the page while this is empty.
     brn: '',
@@ -175,23 +176,35 @@ export const content: SiteContent = {
       postUrl: 'https://www.instagram.com/dubairealtorzubayr/reel/DeGhFFfhP_Z/',
     },
     {
+      // From his reels of Oct 3, 2025 (full details, postUrl), Oct 7 (reel/DPgbZFdEQ_U) and
+      // Oct 9 (reel/DPlIVfwEfOQ). His marketing claims (AED 25bn project, launched 2022,
+      // "82% appreciation", "projected 15-20% annually") are deliberately not shown.
       id: 'rashid-yachts-marina',
       name: { en: 'Rashid Yachts & Marina', ar: 'راشد يخوت ومارينا' },
-      developer: 'Emaar',
+      developer: 'Emaar Properties',
       location: { en: 'Mina Rashid', ar: 'ميناء راشد' },
       category: 'off-plan',
       waterfront: true,
-      // Details not confirmed yet: kept deliberately general (see todo).
-      status: { en: 'Details on request', ar: 'التفاصيل عند الطلب' },
-      unitTypes: { en: 'Ask for current availability', ar: 'اسأل عن الوحدات المتاحة حالياً' },
+      status: { en: 'Off-plan · Completion 2028', ar: 'على الخارطة · الإنجاز في 2028' },
+      unitTypes: { en: '1–4 bed apartments, penthouses and townhouses', ar: 'شقق من غرفة إلى أربع غرف، وبنتهاوس، وتاون هاوس' },
       price: { en: 'Price on request', ar: 'السعر عند الطلب' },
       image: '/images/project-rashid-1.jpg',
       gallery: ['/images/project-rashid-1.jpg', '/images/project-rashid-2.jpg', '/images/project-rashid-3.jpg'],
       summary: {
-        en: 'A marina community at Mina Rashid, Dubai’s historic port. Message me for current units, prices and payment plans.',
-        ar: 'مجتمع على المرسى في ميناء راشد، ميناء دبي التاريخي. راسلني لمعرفة الوحدات المتاحة والأسعار وخطط الدفع الحالية.',
+        en: 'Emaar’s waterfront community at Mina Rashid, Dubai’s first seaport, between Dubai Maritime City and Dubai Islands. About 10 minutes to Dubai International Airport and 20 minutes to Downtown Dubai.',
+        ar: 'مجتمع إعمار على الواجهة البحرية في ميناء راشد، أول ميناء بحري في دبي، بين مدينة دبي الملاحية وجزر دبي. على بُعد نحو 10 دقائق من مطار دبي الدولي و20 دقيقة من وسط مدينة دبي.',
       },
-      highlights: [{ en: 'Marina setting at Mina Rashid', ar: 'موقع على المرسى في ميناء راشد' }],
+      highlights: [
+        { en: 'Dubai’s first seaport, near Al Shindagha Heritage Centre', ar: 'أول ميناء بحري في دبي، بالقرب من مركز الشندغة التراثي' },
+        { en: 'Beach, infinity pools and a floating yacht club', ar: 'شاطئ ومسابح لا متناهية ونادٍ عائم لليخوت' },
+        { en: '400+ superyacht berths, for yachts up to 100 m', ar: 'أكثر من 400 مرسى لليخوت الفاخرة بطول يصل إلى 100 متر' },
+        { en: 'Queen Elizabeth 2 hotel', ar: 'فندق الملكة إليزابيث 2' },
+        { en: '550+ retail stores, “Dubai Mall by the Sea”', ar: 'أكثر من 550 متجراً، «دبي مول على البحر»' },
+        { en: '2 schools and 6 district parks', ar: 'مدرستان و6 حدائق' },
+        { en: '80+ pools, 28 km of running tracks and 4 km of cycling paths', ar: 'أكثر من 80 مسبحاً و28 كم من مسارات الجري و4 كم من مسارات الدراجات' },
+        { en: 'Golden Visa eligibility', ar: 'إمكانية الحصول على الإقامة الذهبية' },
+      ],
+      postUrl: 'https://www.instagram.com/dubairealtorzubayr/reel/DPWrA2bgWTY/',
     },
   ],
 
@@ -230,8 +243,15 @@ export const content: SiteContent = {
     },
   ],
 
-  // Hidden until real award titles, issuers and years are confirmed.
-  awards: [],
+  // Confirmed from his post of Oct 13, 2025. The exact award title isn't stated in the post.
+  awards: [
+    {
+      title: { en: 'First-quarter award', ar: 'جائزة الربع الأول' },
+      issuer: { en: 'Marrfa', ar: 'مارفا' },
+      year: '2025',
+      url: 'https://www.instagram.com/dubairealtorzubayr/p/DPvhBxykblE/',
+    },
+  ],
 
   press: [
     {
@@ -246,18 +266,21 @@ export const content: SiteContent = {
     },
   ],
 
+  // His Instagram highlights "25-26 Oct" and "27th Sept" are these 2025 events. Images are placeholders.
   events: [
     {
-      title: { en: 'Dubai Property Expo', ar: 'معرض دبي العقاري' },
-      date: { en: 'Exclusive invitation', ar: 'دعوة خاصة' },
-      place: { en: 'Dubai', ar: 'دبي' },
+      title: { en: 'Property Roadshow, Karachi', ar: 'المعرض العقاري المتنقل، كراتشي' },
+      date: { en: '25–26 Oct 2025', ar: '25–26 أكتوبر 2025' },
+      place: { en: 'Avari Towers, Karachi', ar: 'أفاري تاورز، كراتشي' },
+      note: { en: 'Dubai property investment and the 10-year Golden Visa', ar: 'الاستثمار العقاري في دبي والإقامة الذهبية لمدة 10 سنوات' },
       image: '/images/event-1.jpg',
+      url: 'https://www.instagram.com/dubairealtorzubayr/reel/DPRErUCDDbV/',
     },
     {
-      title: { en: 'Open House', ar: 'يوم مفتوح' },
-      date: { en: 'Weekend viewings', ar: 'معاينات نهاية الأسبوع' },
-      place: { en: 'Sales gallery', ar: 'صالة المبيعات' },
+      title: { en: 'Ghaf Woods Open House', ar: 'يوم مفتوح في غاف وودز' },
+      date: { en: '27 Sept 2025', ar: '27 سبتمبر 2025' },
       image: '/images/event-2.jpg',
+      url: 'https://www.instagram.com/dubairealtorzubayr/reel/DOvPKYkEcxQ/',
     },
   ],
 
@@ -308,14 +331,15 @@ export const content: SiteContent = {
   todo: [
     'Name order: the offices flyer says "Zubair Akram", LinkedIn and Estate Magazine say "Akram Zubair"; Instagram shows "Realtor Zubayr"',
     'Arabic spelling of his name (currently أكرم زبير)',
-    'Agency: shown as Rino Properties (he is tagged on @rino.properties); confirm',
+    'Current agency: shown as Rino Properties (tagged Oct 2026); he was at Marrfa in Oct 2025. Confirm',
     'RERA BRN (hidden until provided)',
     'Email address (hidden until provided)',
     'Office location and map link (hidden until provided)',
     'Languages spoken (hidden until provided)',
     'Stats for the hero strip (hidden until provided)',
-    'Awards: titles, issuers and years (section hidden until provided)',
-    'Rashid Yachts & Marina: unit types, price, payment plan, handover, and his post link',
+    'Awards: exact title of the Marrfa first-quarter award (2025), a photo of it, and any other awards',
+    'Rashid Yachts & Marina: price and payment plan (not in his posts); project photos',
+    'Events: Ghaf Woods Open House details (place, what it was about) and event photos',
     'Offices tower: developer name; Arancia Yards 2: starting price',
     'Riviera: developer name (not stated in his reel)',
     'Developer row: confirm BEYOND, Casagrand, Emaar, Azizi',

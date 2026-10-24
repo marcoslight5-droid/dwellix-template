@@ -18,7 +18,7 @@ export function Credibility() {
             <div className="awards">
               {awards.map((a) => (
                 <figure key={a.title.en} className="award">
-                  <img src={a.image} alt="" loading="lazy" decoding="async" width={800} height={1000} />
+                  {a.image && <img src={a.image} alt="" loading="lazy" decoding="async" width={800} height={1000} />}
                   <figcaption>
                     <Icon name="award" size={18} />
                     <span>
@@ -26,6 +26,12 @@ export function Credibility() {
                       <span className="muted">
                         {t(a.issuer)} · <bdi>{a.year}</bdi>
                       </span>
+                      {a.url && (
+                        <a className="link" href={a.url} target="_blank" rel="noopener noreferrer">
+                          {s.viewPost}
+                          <Icon name="arrow" size={16} />
+                        </a>
+                      )}
                     </span>
                   </figcaption>
                 </figure>
@@ -61,8 +67,16 @@ export function Credibility() {
                   <figcaption>
                     <strong>{t(e.title)}</strong>
                     <span className="muted">
-                      {t(e.date)} · {t(e.place)}
+                      {t(e.date)}
+                      {e.place && <> · {t(e.place)}</>}
                     </span>
+                    {e.note && <span className="muted">{t(e.note)}</span>}
+                    {e.url && (
+                      <a className="link" href={e.url} target="_blank" rel="noopener noreferrer">
+                        {s.viewPost}
+                        <Icon name="arrow" size={16} />
+                      </a>
+                    )}
                   </figcaption>
                 </figure>
               ))}

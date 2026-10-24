@@ -105,7 +105,10 @@ export interface Award {
   title: L;
   issuer: L;
   year: string;
-  image: string;
+  /** Optional photo of the award or certificate. */
+  image?: string;
+  /** The agent's post about it. */
+  url?: string;
 }
 
 export interface PressItem {
@@ -120,8 +123,12 @@ export interface PressItem {
 export interface EventItem {
   title: L;
   date: L;
-  place: L;
+  place?: L;
+  /** One line on what the event was about. */
+  note?: L;
   image: string;
+  /** The agent's post about it. */
+  url?: string;
 }
 
 export interface Reel {

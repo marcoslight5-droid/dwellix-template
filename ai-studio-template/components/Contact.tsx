@@ -30,6 +30,13 @@ export function Contact() {
             <span>{s.instagram}</span>
             <bdi className="muted">{agent.instagram.handle}</bdi>
           </a>
+          {agent.linkedin && (
+            <a className="contact-row" href={agent.linkedin} target="_blank" rel="noopener noreferrer">
+              <Icon name="linkedin" />
+              <span>LinkedIn</span>
+              <span className="muted ellipsis">{agent.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
+            </a>
+          )}
           <a className="contact-row" href={agent.mapUrl} target="_blank" rel="noopener noreferrer">
             <Icon name="pin" />
             <span>{s.office}</span>

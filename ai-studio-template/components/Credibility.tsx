@@ -39,6 +39,7 @@ export function Credibility() {
                 <span>
                   <span className="press-outlet">{p.outlet}</span>
                   <span className="press-headline">“{t(p.headline)}”</span>
+                  {p.byline && <span className="muted small">{t(p.byline)}</span>}
                   <span className="link">
                     {s.readArticle}
                     <Icon name="arrow" size={16} />

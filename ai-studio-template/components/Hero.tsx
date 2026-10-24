@@ -36,18 +36,20 @@ export function Hero() {
           </figcaption>
         </figure>
       </div>
-      <div className="container">
-        <dl className="stats">
-          {stats.map((stat) => (
-            <div key={stat.label.en} className="stat">
-              <dt>{t(stat.label)}</dt>
-              <dd>
-                <bdi>{stat.value}</bdi>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
+      {stats.length > 0 && (
+        <div className="container">
+          <dl className="stats">
+            {stats.map((stat) => (
+              <div key={stat.label.en} className="stat">
+                <dt>{t(stat.label)}</dt>
+                <dd>
+                  <bdi>{stat.value}</bdi>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
     </section>
   );
 }

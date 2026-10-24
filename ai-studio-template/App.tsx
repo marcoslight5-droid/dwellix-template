@@ -41,7 +41,7 @@ export default function App() {
       image: new URL(agent.photo, window.location.origin).href,
       telephone: agent.phone,
       email: agent.email,
-      sameAs: [agent.instagram.url],
+      sameAs: [agent.instagram.url, agent.linkedin].filter(Boolean),
       knowsLanguage: agent.languages,
       areaServed: 'Dubai',
       identifier: { '@type': 'PropertyValue', name: 'RERA BRN', value: agent.brn },

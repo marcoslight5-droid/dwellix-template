@@ -2,7 +2,7 @@
 
 A premium, bilingual (English / Arabic) website template for Dubai real estate agents, built as a **React + TypeScript + Vite** app so it can be imported into **Google AI Studio** and redesigned with prompts. See [AI_STUDIO.md](./AI_STUDIO.md) for the import steps, the rules to give the AI, and example redesign prompts.
 
-The current content is a **pitch preview** for [@dubairealtorzubayr](https://www.instagram.com/dubairealtorzubayr/). It's drafted from his public Instagram, and everything still unconfirmed is listed in `content.todo` in `data/content.ts`.
+The current content is a **pitch preview** for Akram Zubair ([@dubairealtorzubayr](https://www.instagram.com/dubairealtorzubayr/)). It is drafted from his public Instagram, LinkedIn and Estate Magazine feature; the Instagram and press images are low-resolution crops from his profile. Everything still unconfirmed is listed in `content.todo` in `data/content.ts`.
 
 ## Who this template is for
 

@@ -3,7 +3,8 @@
  * Components never hard-code visible text, so the site can be redesigned
  * (styles/theme.css, components/) without touching what it says.
  *
- * Content is drafted from the public Instagram profile @dubairealtorzubayr.
+ * Content is drafted from the public Instagram profile @dubairealtorzubayr
+ * ("Realtor Zubayr"), his LinkedIn and his Estate Magazine feature.
  * Anything not confirmed by the agent is listed in `todo` at the bottom:
  * check each item with him and delete it from the list once it's correct.
  */
@@ -11,7 +12,7 @@ import type { SiteContent } from '../types';
 
 export const content: SiteContent = {
   agent: {
-    name: { en: 'Zubayr', ar: 'زبير' },
+    name: { en: 'Akram Zubair', ar: 'أكرم زبير' },
     role: { en: 'Off-plan & Investment Advisor', ar: 'مستشار المشاريع على الخارطة والاستثمار العقاري' },
     tagline: {
       en: 'Client-centric property advice for investors and families buying into Dubai’s next landmarks.',
@@ -31,21 +32,19 @@ export const content: SiteContent = {
     photoAlt: '/images/portrait-2.jpg',
     agency: { en: 'Agency name', ar: 'اسم الوكالة' },
     brn: '00000',
-    whatsapp: '+971500000000',
-    phone: '+971500000000',
+    // From his "Grade A offices on Sheikh Zayed Road" post.
+    whatsapp: '+971585365991',
+    phone: '+971585365991',
     email: 'hello@example.com',
     instagram: { handle: '@dubairealtorzubayr', url: 'https://www.instagram.com/dubairealtorzubayr/' },
-    languages: ['English', 'العربية', 'हिन्दी', 'اردو'],
+    linkedin: 'https://www.linkedin.com/in/akramzubair',
+    languages: ['English'],
     office: { en: 'Business Bay, Dubai', ar: 'الخليج التجاري، دبي' },
     mapUrl: 'https://maps.google.com/?q=Business+Bay+Dubai',
   },
 
-  stats: [
-    { value: '8+', label: { en: 'Years in Dubai real estate', ar: 'سنوات في عقارات دبي' } },
-    { value: '500+', label: { en: 'Clients advised', ar: 'عميل حصل على الاستشارة' } },
-    { value: '40+', label: { en: 'Developer launches attended', ar: 'فعالية إطلاق لمطورين' } },
-    { value: '4', label: { en: 'Languages spoken', ar: 'لغات يتحدثها' } },
-  ],
+  // Hidden until real numbers are confirmed (years, deals closed, clients advised…).
+  stats: [],
 
   specialties: [
     {
@@ -83,6 +82,29 @@ export const content: SiteContent = {
   ],
 
   projects: [
+    {
+      id: 'grade-a-offices-szr',
+      name: { en: 'Grade A Office Tower, Sheikh Zayed Road', ar: 'برج مكاتب من الفئة الممتازة، شارع الشيخ زايد' },
+      developer: 'Private release',
+      location: { en: 'Sheikh Zayed Road, between DIFC, Downtown and Business Bay', ar: 'شارع الشيخ زايد، بين مركز دبي المالي العالمي ووسط المدينة والخليج التجاري' },
+      category: 'commercial',
+      status: { en: 'Off-plan · Handover Q2 2031', ar: 'على الخارطة · التسليم في الربع الثاني 2031' },
+      unitTypes: { en: '332 offices from 1,077 sq ft · Freehold', ar: '332 مكتباً بمساحات تبدأ من 1,077 قدماً مربعاً · تملك حر' },
+      price: { en: 'Indicative from AED 4,000/sq ft', ar: 'أسعار استرشادية تبدأ من 4,000 درهم للقدم المربع' },
+      paymentPlan: { en: '20/30/50', ar: '20/30/50' },
+      image: '/images/project-offices-1.jpg',
+      gallery: ['/images/project-offices-1.jpg', '/images/project-offices-2.jpg', '/images/project-offices-3.jpg'],
+      summary: {
+        en: 'An 87-storey, 372-metre landmark between DIFC, Downtown and Business Bay. Private floor plans and pricing on request.',
+        ar: 'معلم من 87 طابقاً بارتفاع 372 متراً بين مركز دبي المالي العالمي ووسط المدينة والخليج التجاري. المخططات والأسعار الخاصة عند الطلب.',
+      },
+      highlights: [
+        { en: '87 floors, 372 m tall', ar: '87 طابقاً بارتفاع 372 متراً' },
+        { en: '332 Grade A offices from 1,077 sq ft', ar: '332 مكتباً من الفئة الممتازة تبدأ من 1,077 قدماً مربعاً' },
+        { en: 'Freehold ownership', ar: 'تملك حر' },
+        { en: '20/30/50 payment plan, handover Q2 2031', ar: 'خطة دفع 20/30/50 والتسليم في الربع الثاني 2031' },
+      ],
+    },
     {
       id: 'beyond-maritime-city',
       name: { en: 'BEYOND Waterfront Residences', ar: 'مساكن BEYOND على الواجهة البحرية' },
@@ -151,27 +173,6 @@ export const content: SiteContent = {
         { en: 'Investor-friendly unit sizes', ar: 'مساحات وحدات مناسبة للمستثمرين' },
       ],
     },
-    {
-      id: 'grade-a-offices-szr',
-      name: { en: 'Grade A Offices on Sheikh Zayed Road', ar: 'مكاتب من الفئة الممتازة على شارع الشيخ زايد' },
-      developer: 'Various developers',
-      location: { en: 'Sheikh Zayed Road', ar: 'شارع الشيخ زايد' },
-      category: 'commercial',
-      status: { en: 'Ready & off-plan options', ar: 'جاهزة وعلى الخارطة' },
-      unitTypes: { en: 'Fitted and shell & core offices', ar: 'مكاتب مجهزة وغير مجهزة' },
-      price: { en: 'Price on request', ar: 'السعر عند الطلب' },
-      image: '/images/project-offices-1.jpg',
-      gallery: ['/images/project-offices-1.jpg', '/images/project-offices-2.jpg', '/images/project-offices-3.jpg'],
-      summary: {
-        en: 'Prestige office floors on Dubai’s main business artery, for companies buying their own space or investors seeking long-lease income.',
-        ar: 'طوابق مكتبية مرموقة على الشريان التجاري الرئيسي في دبي، للشركات الراغبة في تملّك مقرها أو للمستثمرين الباحثين عن دخل من عقود إيجار طويلة.',
-      },
-      highlights: [
-        { en: 'Metro-connected addresses', ar: 'عناوين متصلة بالمترو' },
-        { en: 'Options with tenants in place', ar: 'خيارات مؤجرة بالفعل' },
-        { en: 'Flexible floor plates', ar: 'مساحات طوابق مرنة' },
-      ],
-    },
   ],
 
   investReasons: [
@@ -234,9 +235,10 @@ export const content: SiteContent = {
     {
       outlet: 'Estate Magazine',
       headline: {
-        en: 'Turning Dubai real estate leadership into results',
-        ar: 'تحويل الريادة في عقارات دبي إلى نتائج',
+        en: 'Akram Zubair Is Turning Dubai Real Estate Leadership Into Results',
+        ar: 'أكرم زبير يحوّل الريادة في عقارات دبي إلى نتائج',
       },
+      byline: { en: 'By Aditi Goyal · 17 September 2026', ar: 'بقلم أديتي غويال · 17 سبتمبر 2026' },
       url: 'https://www.instagram.com/dubairealtorzubayr/',
       image: '/images/press-1.jpg',
     },
@@ -259,13 +261,14 @@ export const content: SiteContent = {
 
   developers: ['Emaar', 'Omniyat', 'Azizi', 'Sobha', 'Damac', 'Ellington'],
 
+  // Covers cropped from his Instagram grid. Swap in full-resolution covers and post links.
   reels: [
-    { image: '/images/reel-1.jpg', caption: { en: 'Inside BEYOND', ar: 'من داخل BEYOND' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-2.jpg', caption: { en: 'Rashid Yachts & Marina', ar: 'راشد يخوت ومارينا' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-3.jpg', caption: { en: 'Grade A offices, SZR', ar: 'مكاتب ممتازة، شارع الشيخ زايد' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
-    { image: '/images/reel-4.jpg', caption: { en: 'Fully fitted kitchens', ar: 'مطابخ مجهزة بالكامل' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-5.jpg', caption: { en: 'Dubai’s first port', ar: 'أول موانئ دبي' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
-    { image: '/images/reel-6.jpg', caption: { en: '40+ amenities', ar: 'أكثر من 40 مرفقاً' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    { image: '/images/reel-1.jpg', caption: { en: 'Show apartment walkthrough', ar: 'جولة في الشقة النموذجية' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-2.jpg', caption: { en: 'Smart sofa: massages and music', ar: 'أريكة ذكية للتدليك والموسيقى' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-3.jpg', caption: { en: 'Fully equipped kitchen', ar: 'مطبخ مجهز بالكامل' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-4.jpg', caption: { en: 'More than 40 amenities', ar: 'أكثر من 40 مرفقاً' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-5.jpg', caption: { en: 'Waterfront living', ar: 'الحياة على الواجهة البحرية' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    { image: '/images/reel-6.jpg', caption: { en: 'Lagoon community', ar: 'مجتمع البحيرات' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
   ],
 
   faqs: [
@@ -300,17 +303,16 @@ export const content: SiteContent = {
   ],
 
   todo: [
-    'Full name in English and Arabic (article headline may say "Akram Zubair": confirm spelling)',
+    'Name order: the offices flyer says "Zubair Akram", LinkedIn and Estate Magazine say "Akram Zubair"; Instagram shows "Realtor Zubayr"',
+    'Arabic spelling of his name (currently أكرم زبير)',
     'Agency name and RERA BRN',
-    'WhatsApp number, phone and email',
-    'Office address and map link',
-    'Languages spoken',
-    'Stats: years of experience, clients advised, launches attended',
-    'Projects: confirm names, prices, payment plans, handover dates; replace "Azizi New Launch" with the actual project',
+    'Email address and office location / map link',
+    'Languages spoken (currently English only)',
+    'Stats for the hero strip (hidden until provided)',
+    'Projects: confirm BEYOND, Rashid Yachts & Marina and the Azizi launch (name, price, payment plan, handover); offices tower developer name',
     'Awards: real titles, issuers and years',
-    'Press: Estate Magazine article link and exact headline',
-    'Developer list (only developers he actually sells)',
-    'Reels: links to the actual Instagram posts',
-    'All photos in public/images/ (currently generated placeholders)',
+    'Estate Magazine article URL',
+    'Reels: links to the individual Instagram posts and full-resolution covers',
+    'High-resolution portraits (hero + about) and project photos in public/images/',
   ],
 };

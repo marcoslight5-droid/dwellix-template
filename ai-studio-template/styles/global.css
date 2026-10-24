@@ -120,6 +120,10 @@ p {
   color: var(--color-text-muted);
 }
 
+.small {
+  font-size: 0.82rem;
+}
+
 .fine {
   font-size: 0.8rem;
   color: var(--color-text-muted);

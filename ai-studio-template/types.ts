@@ -11,6 +11,7 @@ export type IconName =
   | 'phone'
   | 'mail'
   | 'instagram'
+  | 'linkedin'
   | 'pin'
   | 'arrow'
   | 'close'
@@ -48,6 +49,7 @@ export interface Agent {
   phone: string;
   email: string;
   instagram: { handle: string; url: string };
+  linkedin?: string;
   languages: string[];
   office: L;
   mapUrl: string;
@@ -103,6 +105,8 @@ export interface Award {
 export interface PressItem {
   outlet: string;
   headline: L;
+  /** e.g. "By Aditi Goyal · 17 September 2026". */
+  byline?: L;
   url: string;
   image: string;
 }
@@ -128,6 +132,7 @@ export interface Faq {
 
 export interface SiteContent {
   agent: Agent;
+  /** Hero stat strip; leave empty to hide it until real numbers are confirmed. */
   stats: Stat[];
   specialties: Specialty[];
   projects: Project[];

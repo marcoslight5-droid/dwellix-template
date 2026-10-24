@@ -1,5 +1,7 @@
 # Dwellix template
 
+> Also in this repo: [`ai-studio-template/`](./ai-studio-template), a React + Vite version of an agent site (off-plan and investment advisor layout) that can be imported into Google AI Studio and redesigned with prompts.
+
 A reusable website template for UAE real estate agents. Each agent gets a personalised, bilingual (English/Arabic) preview site generated from **one JSON file**, deployed to `https://<slug>.dwellix.site`, plus a phone screenshot and a scroll video you can send them.
 
 - Astro (static output) + TypeScript, plain CSS, no client framework. The only JavaScript is a few tiny vanilla scripts for the filters, the gallery and the language toggle.

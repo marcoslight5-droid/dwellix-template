@@ -1,0 +1,5 @@
+{
+  "name": "Dubai Realtor Website (Dwellix template)",
+  "description": "Premium bilingual (English/Arabic) website for a Dubai off-plan and investment real estate advisor. All content lives in data/content.ts and all design tokens in styles/theme.css.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,316 @@
+/**
+ * ALL website content lives in this file, in English and Arabic.
+ * Components never hard-code visible text, so the site can be redesigned
+ * (styles/theme.css, components/) without touching what it says.
+ *
+ * Content is drafted from the public Instagram profile @dubairealtorzubayr.
+ * Anything not confirmed by the agent is listed in `todo` at the bottom:
+ * check each item with him and delete it from the list once it's correct.
+ */
+import type { SiteContent } from '../types';
+
+export const content: SiteContent = {
+  agent: {
+    name: { en: 'Zubayr', ar: 'زبير' },
+    role: { en: 'Off-plan & Investment Advisor', ar: 'مستشار المشاريع على الخارطة والاستثمار العقاري' },
+    tagline: {
+      en: 'Client-centric property advice for investors and families buying into Dubai’s next landmarks.',
+      ar: 'استشارات عقارية تضع العميل أولاً، للمستثمرين والعائلات الراغبين في امتلاك معالم دبي القادمة.',
+    },
+    bio: [
+      {
+        en: 'I help investors and end-users choose the right Dubai property at the right stage, from the first launch event to handover and beyond. My focus is off-plan launches by leading developers, waterfront and branded residences, and Grade A commercial space.',
+        ar: 'أساعد المستثمرين والمشترين بغرض السكن على اختيار العقار المناسب في دبي في الوقت المناسب، من فعالية الإطلاق الأولى وحتى التسليم وما بعده. أركّز على المشاريع على الخارطة من كبار المطورين، والمساكن المطلة على الواجهة البحرية والمساكن ذات العلامات التجارية، والمساحات التجارية من الفئة الممتازة.',
+      },
+      {
+        en: 'Every client gets straight numbers: payment plans, service charges, realistic rental yields and resale potential, so decisions are made on facts, not hype. I also look after investor relations for overseas buyers, handling viewings, paperwork and handover remotely.',
+        ar: 'يحصل كل عميل على أرقام واضحة: خطط الدفع ورسوم الخدمات والعوائد الإيجارية الواقعية وإمكانات إعادة البيع، لتُبنى القرارات على الحقائق لا على الدعاية. كما أتولّى علاقات المستثمرين من خارج الدولة، فأتابع المعاينات والأوراق والتسليم عن بُعد.',
+      },
+    ],
+    photo: '/images/portrait.jpg',
+    photoAlt: '/images/portrait-2.jpg',
+    agency: { en: 'Agency name', ar: 'اسم الوكالة' },
+    brn: '00000',
+    whatsapp: '+971500000000',
+    phone: '+971500000000',
+    email: 'hello@example.com',
+    instagram: { handle: '@dubairealtorzubayr', url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    languages: ['English', 'العربية', 'हिन्दी', 'اردو'],
+    office: { en: 'Business Bay, Dubai', ar: 'الخليج التجاري، دبي' },
+    mapUrl: 'https://maps.google.com/?q=Business+Bay+Dubai',
+  },
+
+  stats: [
+    { value: '8+', label: { en: 'Years in Dubai real estate', ar: 'سنوات في عقارات دبي' } },
+    { value: '500+', label: { en: 'Clients advised', ar: 'عميل حصل على الاستشارة' } },
+    { value: '40+', label: { en: 'Developer launches attended', ar: 'فعالية إطلاق لمطورين' } },
+    { value: '4', label: { en: 'Languages spoken', ar: 'لغات يتحدثها' } },
+  ],
+
+  specialties: [
+    {
+      icon: 'key',
+      title: { en: 'Off-plan launches', ar: 'مشاريع على الخارطة' },
+      text: {
+        en: 'Priority access to new launches with developer payment plans, early-bird pricing and unit selection before public release.',
+        ar: 'وصول مبكر إلى الإطلاقات الجديدة مع خطط دفع المطورين وأسعار الحجز المبكر واختيار الوحدات قبل الطرح العام.',
+      },
+    },
+    {
+      icon: 'chart',
+      title: { en: 'Investor consultations', ar: 'استشارات المستثمرين' },
+      text: {
+        en: 'Yield, capital growth and exit planning for first-time and portfolio investors, including Golden Visa eligible purchases.',
+        ar: 'تخطيط العائد ونمو رأس المال واستراتيجية التخارج للمستثمرين الجدد وأصحاب المحافظ، بما في ذلك الصفقات المؤهلة للإقامة الذهبية.',
+      },
+    },
+    {
+      icon: 'wave',
+      title: { en: 'Waterfront & branded living', ar: 'مساكن الواجهة البحرية والعلامات التجارية' },
+      text: {
+        en: 'Marina, harbour and island addresses with hotel-grade services, from Mina Rashid to Dubai Maritime City.',
+        ar: 'عناوين على المرسى والميناء والجزر مع خدمات بمستوى الفنادق، من ميناء راشد إلى مدينة دبي الملاحية.',
+      },
+    },
+    {
+      icon: 'briefcase',
+      title: { en: 'Commercial property', ar: 'العقارات التجارية' },
+      text: {
+        en: 'Grade A offices on Sheikh Zayed Road and in Business Bay for owner-occupiers and income investors.',
+        ar: 'مكاتب من الفئة الممتازة على شارع الشيخ زايد وفي الخليج التجاري لمن يرغب في الاستخدام أو الاستثمار بعائد.',
+      },
+    },
+  ],
+
+  projects: [
+    {
+      id: 'beyond-maritime-city',
+      name: { en: 'BEYOND Waterfront Residences', ar: 'مساكن BEYOND على الواجهة البحرية' },
+      developer: 'BEYOND by Omniyat',
+      location: { en: 'Dubai Maritime City', ar: 'مدينة دبي الملاحية' },
+      category: 'off-plan',
+      waterfront: true,
+      status: { en: 'Off-plan · Handover TBC', ar: 'على الخارطة · موعد التسليم يُحدَّد لاحقاً' },
+      unitTypes: { en: '1–4 bedroom apartments & penthouses', ar: 'شقق من غرفة إلى أربع غرف وبنتهاوس' },
+      price: { en: 'Price on request', ar: 'السعر عند الطلب' },
+      paymentPlan: { en: 'Developer payment plan available', ar: 'خطة دفع ميسّرة من المطور' },
+      image: '/images/project-beyond-1.jpg',
+      gallery: ['/images/project-beyond-1.jpg', '/images/project-beyond-2.jpg', '/images/project-beyond-3.jpg'],
+      summary: {
+        en: 'Sculpted towers on the water between Port Rashid and the Sheikh Zayed Road skyline, with resort-style podium amenities and open sea views.',
+        ar: 'أبراج بتصاميم منحوتة على الماء بين ميناء راشد وأفق شارع الشيخ زايد، مع مرافق على طراز المنتجعات وإطلالات مفتوحة على البحر.',
+      },
+      highlights: [
+        { en: 'Panoramic sea and skyline views', ar: 'إطلالات بانورامية على البحر وأفق المدينة' },
+        { en: 'Resort-style pools and wellness deck', ar: 'مسابح على طراز المنتجعات ومنطقة للعافية' },
+        { en: 'Minutes to Downtown and DIFC', ar: 'على بُعد دقائق من وسط المدينة ومركز دبي المالي العالمي' },
+      ],
+    },
+    {
+      id: 'rashid-yachts-marina',
+      name: { en: 'Rashid Yachts & Marina', ar: 'راشد يخوت ومارينا' },
+      developer: 'Emaar',
+      location: { en: 'Mina Rashid', ar: 'ميناء راشد' },
+      category: 'off-plan',
+      waterfront: true,
+      status: { en: 'Off-plan · Phased handovers', ar: 'على الخارطة · تسليم على مراحل' },
+      unitTypes: { en: '1–4 bedroom marina apartments', ar: 'شقق على المارينا من غرفة إلى أربع غرف' },
+      price: { en: 'Price on request', ar: 'السعر عند الطلب' },
+      paymentPlan: { en: 'Developer payment plan available', ar: 'خطة دفع ميسّرة من المطور' },
+      image: '/images/project-rashid-1.jpg',
+      gallery: ['/images/project-rashid-1.jpg', '/images/project-rashid-2.jpg', '/images/project-rashid-3.jpg'],
+      summary: {
+        en: 'A yachting community at Dubai’s historic first port, with a superyacht marina, promenade dining and direct sea access.',
+        ar: 'مجتمع لليخوت في أول موانئ دبي التاريخية، مع مرسى لليخوت الفاخرة وممشى للمطاعم ووصول مباشر إلى البحر.',
+      },
+      highlights: [
+        { en: 'Superyacht marina on your doorstep', ar: 'مرسى لليخوت الفاخرة أمام منزلك' },
+        { en: 'Waterfront promenade and beach', ar: 'ممشى على الواجهة البحرية وشاطئ' },
+        { en: 'Strong short-let and holiday-home demand', ar: 'طلب قوي على الإيجار القصير وبيوت العطلات' },
+      ],
+    },
+    {
+      id: 'azizi-new-launch',
+      name: { en: 'Azizi New Launch', ar: 'إطلاق جديد من عزيزي' },
+      developer: 'Azizi Developments',
+      location: { en: 'Dubai', ar: 'دبي' },
+      category: 'off-plan',
+      status: { en: 'Off-plan · Launch pricing', ar: 'على الخارطة · أسعار الإطلاق' },
+      unitTypes: { en: 'Studios to 3 bedroom apartments', ar: 'استوديو حتى شقق بثلاث غرف' },
+      price: { en: 'Price on request', ar: 'السعر عند الطلب' },
+      paymentPlan: { en: 'Post-handover options', ar: 'خيارات للدفع بعد التسليم' },
+      image: '/images/project-azizi-1.jpg',
+      gallery: ['/images/project-azizi-1.jpg', '/images/project-azizi-2.jpg', '/images/project-azizi-3.jpg'],
+      summary: {
+        en: 'An entry point to off-plan investing with launch pricing, fully fitted kitchens and 40+ lifestyle amenities.',
+        ar: 'مدخل مثالي للاستثمار على الخارطة بأسعار الإطلاق، مع مطابخ مجهزة بالكامل وأكثر من 40 مرفقاً لأسلوب حياة متكامل.',
+      },
+      highlights: [
+        { en: '40+ amenities', ar: 'أكثر من 40 مرفقاً' },
+        { en: 'Fully fitted kitchens', ar: 'مطابخ مجهزة بالكامل' },
+        { en: 'Investor-friendly unit sizes', ar: 'مساحات وحدات مناسبة للمستثمرين' },
+      ],
+    },
+    {
+      id: 'grade-a-offices-szr',
+      name: { en: 'Grade A Offices on Sheikh Zayed Road', ar: 'مكاتب من الفئة الممتازة على شارع الشيخ زايد' },
+      developer: 'Various developers',
+      location: { en: 'Sheikh Zayed Road', ar: 'شارع الشيخ زايد' },
+      category: 'commercial',
+      status: { en: 'Ready & off-plan options', ar: 'جاهزة وعلى الخارطة' },
+      unitTypes: { en: 'Fitted and shell & core offices', ar: 'مكاتب مجهزة وغير مجهزة' },
+      price: { en: 'Price on request', ar: 'السعر عند الطلب' },
+      image: '/images/project-offices-1.jpg',
+      gallery: ['/images/project-offices-1.jpg', '/images/project-offices-2.jpg', '/images/project-offices-3.jpg'],
+      summary: {
+        en: 'Prestige office floors on Dubai’s main business artery, for companies buying their own space or investors seeking long-lease income.',
+        ar: 'طوابق مكتبية مرموقة على الشريان التجاري الرئيسي في دبي، للشركات الراغبة في تملّك مقرها أو للمستثمرين الباحثين عن دخل من عقود إيجار طويلة.',
+      },
+      highlights: [
+        { en: 'Metro-connected addresses', ar: 'عناوين متصلة بالمترو' },
+        { en: 'Options with tenants in place', ar: 'خيارات مؤجرة بالفعل' },
+        { en: 'Flexible floor plates', ar: 'مساحات طوابق مرنة' },
+      ],
+    },
+  ],
+
+  investReasons: [
+    {
+      icon: 'percent',
+      title: { en: 'No income or capital gains tax', ar: 'لا ضريبة على الدخل أو الأرباح الرأسمالية' },
+      text: {
+        en: 'Rental income and resale profits on Dubai property are not taxed for individual investors.',
+        ar: 'لا تُفرض ضرائب على دخل الإيجار أو أرباح إعادة البيع للأفراد المستثمرين في عقارات دبي.',
+      },
+    },
+    {
+      icon: 'passport',
+      title: { en: 'Golden Visa pathway', ar: 'طريق إلى الإقامة الذهبية' },
+      text: {
+        en: 'Property worth AED 2 million or more can qualify you for a 10-year UAE Golden Visa.',
+        ar: 'العقار بقيمة مليوني درهم أو أكثر قد يؤهلك للحصول على الإقامة الذهبية في الإمارات لمدة 10 سنوات.',
+      },
+    },
+    {
+      icon: 'shield',
+      title: { en: 'Escrow-protected off-plan', ar: 'حماية حسابات الضمان للمشاريع على الخارطة' },
+      text: {
+        en: 'Off-plan payments go into RERA-regulated escrow accounts tied to construction progress.',
+        ar: 'تُودَع دفعات المشاريع على الخارطة في حسابات ضمان تنظمها مؤسسة التنظيم العقاري وترتبط بمراحل الإنجاز.',
+      },
+    },
+    {
+      icon: 'globe',
+      title: { en: 'Freehold for foreigners', ar: 'تملّك حر للأجانب' },
+      text: {
+        en: 'International buyers can own property outright in designated freehold areas, and buy remotely.',
+        ar: 'يمكن للمشترين الدوليين تملّك العقار بالكامل في مناطق التملك الحر المحددة، والشراء عن بُعد.',
+      },
+    },
+  ],
+
+  awards: [
+    {
+      title: { en: 'Top Achiever Award', ar: 'جائزة أفضل إنجاز' },
+      issuer: { en: 'Developer sales recognition', ar: 'تكريم مبيعات من المطور' },
+      year: '2025',
+      image: '/images/award-1.jpg',
+    },
+    {
+      title: { en: 'Certificate of Recognition', ar: 'شهادة تقدير' },
+      issuer: { en: 'Developer partner programme', ar: 'برنامج شركاء المطور' },
+      year: '2024',
+      image: '/images/award-2.jpg',
+    },
+    {
+      title: { en: 'Best Deals Award', ar: 'جائزة أفضل الصفقات' },
+      issuer: { en: 'Brokerage awards night', ar: 'حفل جوائز الوساطة' },
+      year: '2024',
+      image: '/images/award-3.jpg',
+    },
+  ],
+
+  press: [
+    {
+      outlet: 'Estate Magazine',
+      headline: {
+        en: 'Turning Dubai real estate leadership into results',
+        ar: 'تحويل الريادة في عقارات دبي إلى نتائج',
+      },
+      url: 'https://www.instagram.com/dubairealtorzubayr/',
+      image: '/images/press-1.jpg',
+    },
+  ],
+
+  events: [
+    {
+      title: { en: 'Dubai Property Expo', ar: 'معرض دبي العقاري' },
+      date: { en: 'Exclusive invitation', ar: 'دعوة خاصة' },
+      place: { en: 'Dubai', ar: 'دبي' },
+      image: '/images/event-1.jpg',
+    },
+    {
+      title: { en: 'Open House', ar: 'يوم مفتوح' },
+      date: { en: 'Weekend viewings', ar: 'معاينات نهاية الأسبوع' },
+      place: { en: 'Sales gallery', ar: 'صالة المبيعات' },
+      image: '/images/event-2.jpg',
+    },
+  ],
+
+  developers: ['Emaar', 'Omniyat', 'Azizi', 'Sobha', 'Damac', 'Ellington'],
+
+  reels: [
+    { image: '/images/reel-1.jpg', caption: { en: 'Inside BEYOND', ar: 'من داخل BEYOND' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-2.jpg', caption: { en: 'Rashid Yachts & Marina', ar: 'راشد يخوت ومارينا' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-3.jpg', caption: { en: 'Grade A offices, SZR', ar: 'مكاتب ممتازة، شارع الشيخ زايد' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+    { image: '/images/reel-4.jpg', caption: { en: 'Fully fitted kitchens', ar: 'مطابخ مجهزة بالكامل' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-5.jpg', caption: { en: 'Dubai’s first port', ar: 'أول موانئ دبي' }, url: 'https://www.instagram.com/dubairealtorzubayr/', video: true },
+    { image: '/images/reel-6.jpg', caption: { en: '40+ amenities', ar: 'أكثر من 40 مرفقاً' }, url: 'https://www.instagram.com/dubairealtorzubayr/' },
+  ],
+
+  faqs: [
+    {
+      q: { en: 'Can I buy in Dubai without living in the UAE?', ar: 'هل يمكنني الشراء في دبي دون الإقامة في الإمارات؟' },
+      a: {
+        en: 'Yes. Foreign nationals can buy freehold property, and the whole process (reservation, payments, signing and handover) can be handled remotely, with a power of attorney where needed.',
+        ar: 'نعم. يمكن لغير المواطنين شراء عقارات التملك الحر، ويمكن إتمام العملية كلها عن بُعد من الحجز والدفع والتوقيع حتى التسليم، مع وكالة قانونية عند الحاجة.',
+      },
+    },
+    {
+      q: { en: 'What does buying off-plan cost on top of the price?', ar: 'ما التكاليف الإضافية عند الشراء على الخارطة؟' },
+      a: {
+        en: 'The main extra is the Dubai Land Department fee of 4% of the price, plus a small registration fee. I give you a full cost sheet for each unit before you reserve.',
+        ar: 'التكلفة الإضافية الرئيسية هي رسوم دائرة الأراضي والأملاك بنسبة 4% من السعر، إضافة إلى رسوم تسجيل بسيطة. أقدّم لك بياناً كاملاً بالتكاليف لكل وحدة قبل الحجز.',
+      },
+    },
+    {
+      q: { en: 'How are off-plan payments protected?', ar: 'كيف تُحمى دفعات الشراء على الخارطة؟' },
+      a: {
+        en: 'Payments go into an escrow account regulated by RERA and are released to the developer as construction milestones are met. Your purchase is registered with the DLD (Oqood).',
+        ar: 'تُودَع الدفعات في حساب ضمان تنظمه مؤسسة التنظيم العقاري وتُصرف للمطور مع إنجاز مراحل البناء، ويُسجَّل الشراء لدى دائرة الأراضي والأملاك (أوقود).',
+      },
+    },
+    {
+      q: { en: 'Which areas give the best rental yields?', ar: 'ما المناطق التي تحقق أفضل عائد إيجاري؟' },
+      a: {
+        en: 'It depends on your budget and whether you want long-term or holiday-home income. Book a consultation and I’ll compare live yields and service charges for your shortlist.',
+        ar: 'يعتمد ذلك على ميزانيتك وما إذا كنت تفضّل الإيجار طويل الأمد أو بيوت العطلات. احجز استشارة وسأقارن لك العوائد الحالية ورسوم الخدمات للمشاريع التي تهمّك.',
+      },
+    },
+  ],
+
+  todo: [
+    'Full name in English and Arabic (article headline may say "Akram Zubair": confirm spelling)',
+    'Agency name and RERA BRN',
+    'WhatsApp number, phone and email',
+    'Office address and map link',
+    'Languages spoken',
+    'Stats: years of experience, clients advised, launches attended',
+    'Projects: confirm names, prices, payment plans, handover dates; replace "Azizi New Launch" with the actual project',
+    'Awards: real titles, issuers and years',
+    'Press: Estate Magazine article link and exact headline',
+    'Developer list (only developers he actually sells)',
+    'Reels: links to the actual Instagram posts',
+    'All photos in public/images/ (currently generated placeholders)',
+  ],
+};
